@@ -1,0 +1,83 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace "com.timeout.app"
+    compileSdk rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "com.timeout.app"
+        minSdkVersion 23  // Android 6.0+ (matches our webview baseline)
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "0.1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        aaptOptions {
+            ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
+        }
+    }
+
+    // Signing config: read keystore from environment variables when set.
+    // Falling back to the debug keystore is fine for local development, but for
+    // any store release you must set these env vars on the build machine:
+    //   TIMEOUT_KEYSTORE_FILE, TIMEOUT_KEYSTORE_PASSWORD,
+    //   TIMEOUT_KEY_ALIAS,     TIMEOUT_KEY_PASSWORD
+    signingConfigs {
+        release {
+            if (System.getenv("TIMEOUT_KEYSTORE_FILE")) {
+                storeFile file(System.getenv("TIMEOUT_KEYSTORE_FILE"))
+                storePassword System.getenv("TIMEOUT_KEYSTORE_PASSWORD")
+                keyAlias System.getenv("TIMEOUT_KEY_ALIAS")
+                keyPassword System.getenv("TIMEOUT_KEY_PASSWORD")
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // Only attach the release signingConfig when the env vars above are set.
+            signingConfig signingConfigs.release
+        }
+        debug {
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-DEBUG'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+repositories {
+    flatDir {
+        dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:$androidxCoordinatorLayoutVersion"
+    implementation "androidx.core:core-splashscreen:$coreSplashScreenVersion"
+    implementation project(':capacitor-android')
+    testImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
+    implementation project(':capacitor-cordova-android-plugins')
+}
+
+apply from: 'capacitor.build.gradle'
+
+// Apply google-services plugin only if google-services.json is present
+// (needed for Firebase Cloud Messaging push notifications)
+try {
+    def servicesJSON = file('google-services.json')
+    if (servicesJSON.text) {
+        apply plugin: 'com.google.gms.google-services'
+    }
+} catch(Exception e) {
+    logger.info("google-services.json not found, google-services plugin not applied. Push notifications will fall back to local notifications only.")
+}
