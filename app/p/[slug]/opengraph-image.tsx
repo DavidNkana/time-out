@@ -22,13 +22,13 @@ export default async function OpengraphImage({
       (
         <div
           style={{
-            background: '#1a1f26',
+            background: brand.colors.dark,
             width: '100%',
             height: '100%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#fff',
+            color: brand.colors.bg,
             fontSize: 48,
             fontWeight: 700,
           }}
@@ -49,12 +49,12 @@ export default async function OpengraphImage({
     (
       <div
         style={{
-          background: '#1a1f26',
+          background: brand.colors.dark,
           width: '100%',
           height: '100%',
           display: 'flex',
           flexDirection: 'row',
-          color: '#fff',
+          color: brand.colors.bg,
           fontFamily: 'sans-serif',
         }}
       >
@@ -66,7 +66,7 @@ export default async function OpengraphImage({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            background: '#ffffff',
+            background: brand.colors.bg,
           }}
         >
           {image ? (
@@ -78,7 +78,7 @@ export default async function OpengraphImage({
               style={{ objectFit: 'cover' }}
             />
           ) : (
-            <div style={{ fontSize: 24, color: '#1a1f26', fontWeight: 700 }}>{brand.name}</div>
+            <div style={{ fontSize: 24, color: brand.colors.dark, fontWeight: 700 }}>{brand.name}</div>
           )}
         </div>
 
@@ -104,7 +104,7 @@ export default async function OpengraphImage({
                 justifyContent: 'center',
                 fontSize: 20,
                 fontWeight: 700,
-                color: '#fff',
+                color: brand.colors.bg,
               }}
             >
               {brand.name.charAt(0).toUpperCase()}
