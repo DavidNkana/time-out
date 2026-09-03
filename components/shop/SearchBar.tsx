@@ -13,12 +13,8 @@ type SearchResult = {
 };
 
 const NAV_LINKS = [
-  { href: '/c/apparel', label: 'Apparel' },
-  { href: '/c/kitchen', label: 'Kitchen' },
-  { href: '/c/home-decor', label: 'Home Decor' },
-  { href: '/c/back-to-school', label: 'Back to School' },
-  { href: '/c/bathroom', label: 'Bathroom' },
-  { href: '/c/bedroom', label: 'Bedroom' }
+  { href: '/c/home', label: 'Home' },
+  { href: '/c/womens-fashion', label: "Women's Fashion" }
 ];
 
 export function SearchBar() {

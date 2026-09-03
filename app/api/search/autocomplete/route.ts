@@ -55,15 +55,11 @@ export async function GET(req: NextRequest) {
   });
 }
 
-/** Returns 6 popular categories for the empty-query dropdown */
+/** Returns the two Timeout categories for the empty-query dropdown */
 function getPopularCategories() {
   // Static list — fast, no DB hit. These are the categories the home page shows.
   return [
-    { id: 'apparel', slug: 'apparel', name: 'Apparel' },
-    { id: 'kitchen', slug: 'kitchen', name: 'Kitchen' },
-    { id: 'home-decor', slug: 'home-decor', name: 'Home Decor' },
-    { id: 'bathroom', slug: 'bathroom', name: 'Bathroom' },
-    { id: 'bedroom', slug: 'bedroom', name: 'Bedroom' },
-    { id: 'back-to-school', slug: 'back-to-school', name: 'Back to School' },
+    { id: 'home', slug: 'home', name: 'Home' },
+    { id: 'womens-fashion', slug: 'womens-fashion', name: "Women's Fashion" },
   ];
 }

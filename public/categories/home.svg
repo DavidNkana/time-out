@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <!--
+    Home category card.
+    Soft-pink gradient + stylized interior scene (sofa + lamp + vase).
+  -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#FBE9EE"/>
+      <stop offset="60%"  stop-color="#F7D4DC"/>
+      <stop offset="100%" stop-color="#E8A0AE"/>
+    </linearGradient>
+    <linearGradient id="sofa" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9D988E"/>
+      <stop offset="100%" stop-color="#706B62"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="600" fill="url(#bg)"/>
+
+  <!-- Wall art (small framed prints) -->
+  <rect x="80" y="100" width="80" height="100" fill="#FAF6F4" stroke="#26241D" stroke-width="3"/>
+  <circle cx="120" cy="150" r="22" fill="#E8A0AE"/>
+  <rect x="80" y="170" width="80" height="6" fill="#9D988E"/>
+  <rect x="80" y="184" width="60" height="4" fill="#9D988E" opacity="0.6"/>
+
+  <rect x="180" y="80" width="60" height="100" fill="#FAF6F4" stroke="#26241D" stroke-width="2.5"/>
+  <rect x="190" y="100" width="40" height="20" fill="#9D988E"/>
+  <rect x="190" y="130" width="40" height="40" fill="#E8A0AE" opacity="0.7"/>
+
+  <!-- Sofa -->
+  <rect x="120" y="280" width="280" height="100" rx="14" fill="url(#sofa)"/>
+  <rect x="100" y="350" width="320" height="60" rx="10" fill="#9D988E"/>
+  <rect x="100" y="290" width="30" height="120" rx="8" fill="#9D988E"/>
+  <rect x="390" y="290" width="30" height="120" rx="8" fill="#9D988E"/>
+  <!-- Pink throw pillows -->
+  <rect x="140" y="300" width="50" height="50" rx="8" fill="#E8A0AE" transform="rotate(-6 165 325)"/>
+  <rect x="320" y="300" width="50" height="50" rx="8" fill="#D17585" transform="rotate(8 345 325)"/>
+  <!-- Lumbar pillow -->
+  <rect x="220" y="315" width="80" height="30" rx="6" fill="#C9C5BD" transform="rotate(-3 260 330)"/>
+
+  <!-- Coffee table -->
+  <rect x="180" y="420" width="160" height="14" rx="3" fill="#3F3D38"/>
+  <rect x="190" y="434" width="6" height="40" fill="#26241D"/>
+  <rect x="324" y="434" width="6" height="40" fill="#26241D"/>
+  <!-- Vase -->
+  <path d="M 250 410 Q 250 388 264 388 L 286 388 Q 300 388 300 410 L 296 422 L 254 422 Z" fill="#FAF6F4" stroke="#9D988E" stroke-width="1.5"/>
+  <line x1="275" y1="388" x2="270" y2="350" stroke="#706B62" stroke-width="1.5"/>
+  <line x1="275" y1="388" x2="285" y2="358" stroke="#706B62" stroke-width="1.5"/>
+  <circle cx="270" cy="350" r="8" fill="#E8A0AE"/>
+  <circle cx="285" cy="358" r="7" fill="#D17585"/>
+
+  <!-- Lamp -->
+  <rect x="470" y="280" width="6" height="180" fill="#3F3D38"/>
+  <ellipse cx="473" cy="460" rx="28" ry="6" fill="#26241D"/>
+  <path d="M 440 220 L 506 220 L 494 280 L 452 280 Z" fill="#FAF6F4" stroke="#9D988E" stroke-width="1.5"/>
+
+  <!-- Plant pot -->
+  <path d="M 460 420 L 540 420 L 530 470 L 470 470 Z" fill="#FAF6F4" stroke="#9D988E" stroke-width="1.5"/>
+  <ellipse cx="500" cy="390" rx="28" ry="34" fill="#706B62" transform="rotate(-10 500 390)"/>
+  <ellipse cx="510" cy="380" rx="22" ry="30" fill="#504C45" transform="rotate(8 510 380)"/>
+
+  <!-- Floor band -->
+  <rect y="500" width="600" height="100" fill="#D8C5B5" opacity="0.4"/>
+
+  <!-- Category label -->
+  <text x="300" y="555" text-anchor="middle" font-family="Georgia, serif" font-size="40" font-weight="600" fill="#FAF6F4" letter-spacing="-1">HOME</text>
+  <text x="300" y="585" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#FAF6F4" letter-spacing="3" opacity="0.85">DECOR &amp; APPLIANCES</text>
+</svg>

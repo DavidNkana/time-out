@@ -6,17 +6,11 @@ type Category = {
   imageUrl: string;
 };
 
+// Timeout ships with two top-level categories. The DB schema allows more,
+// but the storefront surfaces only Home and Women's Fashion.
 const CATEGORIES: Category[] = [
-  { slug: 'back-to-school',  name: 'Back to School', imageUrl: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=600&fit=crop&q=80' },
-  { slug: 'apparel',         name: 'Apparel',        imageUrl: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&h=600&fit=crop&q=80' },
-  { slug: 'bags',            name: 'Bags',           imageUrl: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=600&fit=crop&q=80' },
-  { slug: 'bathroom',        name: 'Bathroom',       imageUrl: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=600&fit=crop&q=80' },
-  { slug: 'bedroom',         name: 'Bedroom',        imageUrl: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&h=600&fit=crop&q=80' },
-  { slug: 'curtains',        name: 'Curtains',       imageUrl: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&h=600&fit=crop&q=80' },
-  { slug: 'everyday-essentials', name: 'Everyday Essentials', imageUrl: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&h=600&fit=crop&q=80' },
-  { slug: 'home-decor',      name: 'Home Decor',     imageUrl: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600&h=600&fit=crop&q=80' },
-  { slug: 'kitchen',         name: 'Kitchen',        imageUrl: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=600&fit=crop&q=80' },
-  { slug: 'shoes',           name: 'Shoes',          imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop&q=80' }
+  { slug: 'home',           name: 'Home',            imageUrl: '/categories/home.svg' },
+  { slug: 'womens-fashion', name: "Women's Fashion", imageUrl: '/categories/womens-fashion.svg' }
 ];
 
 export function CategoryGrid() {
