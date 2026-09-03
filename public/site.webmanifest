@@ -1,7 +1,7 @@
 {
-  "name": "Trends Day-to-Day",
-  "short_name": "Trends",
-  "description": "South African multi-category marketplace",
+  "name": "TIME-OUT HOME AND STYLE",
+  "short_name": "Time-Out",
+  "description": "Timeout — calm, focused, and elegant. Home and style.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -9,9 +9,10 @@
   "theme_color": "#E8A0AE",
   "icons": [
     {
-      "src": "/brand/favicon.png",
+      "//": "Single source JPG: public/olia-app-icon.jpg. Proper PNG variants at 192/512 will be generated in a follow-up so Android home-screen, iOS add-to-home-screen, and Lighthouse PWA audits all pass cleanly.",
+      "src": "/olia-app-icon.jpg",
       "sizes": "150x150",
-      "type": "image/png"
+      "type": "image/jpeg"
     }
   ]
 }

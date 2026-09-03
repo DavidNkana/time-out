@@ -225,7 +225,7 @@ Before shipping Timeout for real, replace:
 - `ios/App/App/Assets.xcassets/Splash.imageset/splash-*.png`
 - `android/app/src/main/res/mipmap-*/ic_launcher*.png`
 - `android/app/src/main/res/drawable-*/splash.png`
-- `public/brand/logo.png`, `public/brand/favicon.png`, `public/brand/splash.svg`
+- `public/olia-logo.jpg`, `public/olia-app-icon.jpg`, `public/brand/splash.svg`
 
 All of these are bundled scaffolding right now.
 

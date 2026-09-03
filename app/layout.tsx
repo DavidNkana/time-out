@@ -38,8 +38,8 @@ export const metadata: Metadata = {
   formatDetection: { telephone: false, address: false, email: false },
   icons: {
     icon: [
-      { url: brand.favicon, type: 'image/png' },
-      { url: brand.favicon, sizes: '150x150', type: 'image/png' },
+      { url: brand.favicon, type: 'image/jpeg' },
+      { url: brand.favicon, sizes: '150x150', type: 'image/jpeg' },
     ],
     apple: [{ url: brand.favicon }],
   },

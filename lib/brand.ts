@@ -36,21 +36,21 @@ export const brand = {
   },
 
   // Files (paths are relative to /public so usable in <img src> or CSS url())
-  logo: '/brand/logo.png',
-  favicon: '/brand/favicon.png',
-  ogDefault: '/brand/og-default.png', // paired with opengraph-image.tsx
+  logo: '/olia-logo.jpg',
+  favicon: '/olia-app-icon.jpg',
+  ogDefault: '/olia-logo.jpg', // paired with opengraph-image.tsx
 
-  // Contact — placeholders only. Replace before shipping for real.
+  // Contact — Olia (Time-Out Home and Style)
   contact: {
     address: {
       line1: '',
       line2: '',
       country: '',
     },
-    phone: '',
-    whatsapp: '',
-    whatsappLink: '',
-    email: 'hello@timeout.app',
+    phone: '+27 76 895 2322',
+    whatsapp: '+27 76 895 2322',
+    whatsappLink: 'https://wa.me/27768952322',
+    email: 'chaukeolia78@gmail.com',
     hours: '',
   },
 
@@ -61,6 +61,7 @@ export const brand = {
     twitter: '',
     twitterHandle: '',
     whatsappShare: '',
+    email: 'mailto:chaukeolia78@gmail.com',
     website: '',
   },
 
@@ -75,7 +76,7 @@ export const brand = {
   email: {
     fromName: 'Timeout',
     // from address comes from RESEND_FROM_EMAIL env
-    replyTo: 'hello@timeout.app',
+    replyTo: 'chaukeolia78@gmail.com',
     orderConfirmationSubject: 'Your Timeout order is confirmed',
     orderShippedSubject: 'Your order is on its way',
     newsletterWelcomeSubject: 'Welcome to Timeout',
