@@ -63,37 +63,6 @@ declare
   _pid  uuid;
   _now  timestamptz := now();
 
-  -- Reusable image array (verified Unsplash photo IDs reused from 010/011)
-  _imgs text[] := array[
-    'https://picsum.photos/seed/legacy-1555041469-a586c62ea9bc/800/800',  -- 1  pillow
-    'https://picsum.photos/seed/legacy-1505693416388-ac5ce068fe/800/800',  -- 2  bed/throw
-    'https://picsum.photos/seed/legacy-1513694203232-719a280e02/800/800',  -- 3  plant/vase
-    'https://picsum.photos/seed/legacy-1505693314120-0d44336789/800/800',  -- 4  candle
-    'https://picsum.photos/seed/legacy-1503676260728-1c00da094a/800/800',  -- 5  plant
-    'https://picsum.photos/seed/legacy-1556909114-f6e7ad7d3136/800/800',  -- 6  perfume
-    'https://picsum.photos/seed/legacy-1604709177225-055f99402e/800/800',  -- 7  perfume
-    'https://picsum.photos/seed/legacy-1603487742131-4160ec9993/800/800',  -- 8  diffuser
-    'https://picsum.photos/seed/legacy-1556228720-195a672e8a03/800/800',  -- 9  perfume
-    'https://picsum.photos/seed/legacy-1542219550-37144d6d4f8a/800/800',  -- 10 perfume
-    'https://picsum.photos/seed/legacy-1545239351-cefa43af60f3/800/800',  -- 11 dress
-    'https://picsum.photos/seed/legacy-1539109136881-3be0616acf/800/800',  -- 12 clothes/blouse
-    'https://picsum.photos/seed/legacy-1521572163474-6864f9cf17/800/800',  -- 13 shirt/skirt
-    'https://picsum.photos/seed/legacy-1542272604-787c3835535d/800/800',  -- 14 jeans/trouser
-    'https://picsum.photos/seed/legacy-1576566588028-5517d4071b/800/800',  -- 15 tshirt/cardigan
-    'https://picsum.photos/seed/legacy-1542291026-7eec264c27ff/800/800',  -- 16 red shoe
-    'https://picsum.photos/seed/legacy-1542293787938-c9e332b85c/800/800',  -- 17 shoes
-    'https://picsum.photos/seed/legacy-1553062407-98eeb64c6a62/800/800',  -- 18 bag
-    'https://picsum.photos/seed/legacy-1564585222527-c2777a5b5d/800/800',  -- 19 perfume
-    'https://picsum.photos/seed/legacy-1574180566232-aaad1b5de8/800/800',  -- 20 perfume
-    'https://picsum.photos/seed/legacy-1572635196237-14b3f28103/800/800',  -- 21 sunglasses/scarf
-    'https://picsum.photos/seed/legacy-1552321554-5fefe8c9ef14/800/800',  -- 22 lipstick
-    'https://picsum.photos/seed/legacy-1556909211-d5fd1c5c5d2f/800/800',  -- 23 perfume
-    'https://picsum.photos/seed/legacy-1556228720-da4e85a4ba42/800/800',  -- 24 denim
-    'https://picsum.photos/seed/legacy-1523275335684-37898b6baf/800/800',  -- 25 watch
-    'https://picsum.photos/seed/legacy-1546863211-acd07f8d3f06/800/800',  -- 26 watch
-    'https://picsum.photos/seed/legacy-1558618666-fcd25c85f82e/800/800',  -- 27 perfume
-    'https://picsum.photos/seed/legacy-1603006905003-be475563bc/800/800'   -- 28 perfume
-  ];
 begin
 
   -- ===================================================================
@@ -107,8 +76,8 @@ begin
     (_pid,'VPIL-CRM','Cream','{"colour":"Cream"}',22),
     (_pid,'VPIL-SGE','Sage','{"colour":"Sage"}',15);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[1],  'Blush velvet throw pillow on a cream linen sofa',     0),
-    (_pid, _imgs[2],  'Velvet pillow detail shot on a wooden bench',         1);
+    (_pid, '/products/to-velvet-pillow.svg',  'Blush velvet throw pillow on a cream linen sofa',     0),
+    (_pid, '/products/to-velvet-pillow.svg',  'Velvet pillow detail shot on a wooden bench',         1);
 
   -- 2. Stonewashed Linen Throw
   insert into public.products (slug, name, description, category_id, base_price_cents, tags, created_at) values ('to-stonewashed-throw','Stonewashed Linen Throw','Stonewashed linen that softens with every wash. Light enough for the sofa, generous enough for the foot of the bed.', _home, 89900, '{linen,throw,bedroom,neutral}', _now - interval '5 hours') returning id into _pid;
@@ -116,15 +85,15 @@ begin
     (_pid,'SLT-OAT','Oatmeal','{"colour":"Oatmeal"}',14),
     (_pid,'SLT-SLT','Slate','{"colour":"Slate"}',10);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[2], 'Stonewashed linen throw folded at the foot of a bed', 0);
+    (_pid, '/products/to-stonewashed-throw.svg', 'Stonewashed linen throw folded at the foot of a bed', 0);
 
   -- 3. Hand-thrown Ceramic Vase — FEATURED
   insert into public.products (slug, name, description, category_id, base_price_cents, is_featured, tags, created_at) values ('to-ceramic-vase','Hand-thrown Ceramic Vase','Hand-thrown with a matte glaze. Each piece has its own quiet imperfection — the small ridge where the potter''s hand paused.', _home, 44900, true, '{ceramic,vase,minimalist,gift}', _now - interval '3 hours') returning id into _pid;
   insert into public.product_variants (product_id, sku, name, options, stock) values
     (_pid,'HCV-CRM','Cream','{"colour":"Cream"}',12);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[3], 'Matte cream ceramic vase holding a single eucalyptus stem', 0),
-    (_pid, _imgs[5], 'Ceramic vase on a sunlit shelf',                           1);
+    (_pid, '/products/to-ceramic-vase.svg', 'Matte cream ceramic vase holding a single eucalyptus stem', 0),
+    (_pid, '/products/to-ceramic-vase.svg', 'Ceramic vase on a sunlit shelf',                           1);
 
   -- 4. Soy Wax Scented Candle
   insert into public.products (slug, name, description, category_id, base_price_cents, tags, created_at) values ('to-soy-candle','Soy Wax Scented Candle','Poured from a clean soy-coconut wax blend. Scented, not perfumed. 40-hour burn in a reusable glass vessel.', _home, 24900, '{candle,soy,home,scented}', _now - interval '1 day') returning id into _pid;
@@ -133,8 +102,8 @@ begin
     (_pid,'SC-VAN','Vanilla Cedar','{"scent":"Vanilla Cedar"}',18),
     (_pid,'SC-ROS','Rose Garden','{"scent":"Rose Garden"}',15);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[4], 'Glass soy candle with a wooden wick in soft afternoon light', 0),
-    (_pid, _imgs[6], 'Three scented candles lined up on a marble shelf',            1);
+    (_pid, '/products/to-soy-candle.svg', 'Glass soy candle with a wooden wick in soft afternoon light', 0),
+    (_pid, '/products/to-soy-candle.svg', 'Three scented candles lined up on a marble shelf',            1);
 
   -- 5. Hand-glazed Ceramic Mug Set — DISCOUNT (R299 → R389)
   insert into public.products (slug, name, description, category_id, base_price_cents, compare_at_cents, tags, created_at) values ('to-mug-set','Hand-glazed Ceramic Mug Set','Glazed by hand in small batches. Slightly uneven rims, fully watertight, made for unhurried mornings. Sold as a pair.', _home, 29900, 38900, '{ceramic,mug,kitchen,morning}', _now - interval '8 hours') returning id into _pid;
@@ -142,15 +111,15 @@ begin
     (_pid,'HCMS-CRM','Cream / Pair','{"colour":"Cream","set":"Pair"}',16),
     (_pid,'HCMS-SLT','Slate / Pair','{"colour":"Slate","set":"Pair"}',12);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[22], 'Pair of hand-glazed ceramic mugs on a wooden shelf', 0),
-    (_pid, _imgs[7],  'Mug detail showing the soft glaze',                  1);
+    (_pid, '/products/to-mug-set.svg', 'Pair of hand-glazed ceramic mugs on a wooden shelf', 0),
+    (_pid, '/products/to-mug-set.svg',  'Mug detail showing the soft glaze',                  1);
 
   -- 6. Walnut Serving Tray
   insert into public.products (slug, name, description, category_id, base_price_cents, tags, created_at) values ('to-walnut-tray','Walnut Serving Tray','Solid walnut with a hand-rubbed oil finish. Looks right on a bed, ottoman, or bathroom counter.', _home, 54900, '{walnut,tray,serving,wood}', _now - interval '2 days') returning id into _pid;
   insert into public.product_variants (product_id, sku, name, options, stock) values
     (_pid,'WST-STD','Standard 40cm','{"size":"Standard 40cm"}',9);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[25], 'Solid walnut serving tray with brass handles on a marble counter', 0);
+    (_pid, '/products/to-walnut-tray.svg', 'Solid walnut serving tray with brass handles on a marble counter', 0);
 
   -- 7. Hand-woven Jute Area Rug
   insert into public.products (slug, name, description, category_id, base_price_cents, tags, created_at) values ('to-jute-rug','Hand-woven Jute Area Rug','Hand-woven from natural jute with a tight, flat weave. Anchors a room without competing with the rest of it.', _home, 119900, '{jute,rug,natural,floor}', _now - interval '6 hours') returning id into _pid;
@@ -158,7 +127,7 @@ begin
     (_pid,'HJR-160','160x230cm','{"size":"160x230cm"}',7),
     (_pid,'HJR-200','200x300cm','{"size":"200x300cm"}',5);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[5], 'Hand-woven jute rug in a sunlit living room', 0);
+    (_pid, '/products/to-jute-rug.svg', 'Hand-woven jute rug in a sunlit living room', 0);
 
   -- 8. Glass Reed Diffuser
   insert into public.products (slug, name, description, category_id, base_price_cents, tags, created_at) values ('to-reed-diffuser','Glass Reed Diffuser','A glass vessel with rattan reeds. Quiet, room-filling scent for the corner you actually sit in. Lasts 8–12 weeks.', _home, 29900, '{diffuser,scented,home,gift}', _now - interval '4 hours') returning id into _pid;
@@ -167,8 +136,8 @@ begin
     (_pid,'GRD-VAN','Vanilla Cedar','{"scent":"Vanilla Cedar"}',18),
     (_pid,'GRD-ROS','Rose Garden','{"scent":"Rose Garden"}',15);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[8],  'Glass reed diffuser with rattan sticks on a marble shelf', 0),
-    (_pid, _imgs[23], 'Diffuser styled on a wooden console',                     1);
+    (_pid, '/products/to-reed-diffuser.svg',  'Glass reed diffuser with rattan sticks on a marble shelf', 0),
+    (_pid, '/products/to-reed-diffuser.svg', 'Diffuser styled on a wooden console',                     1);
 
   -- 9. Velvet Curtain Panel
   insert into public.products (slug, name, description, category_id, base_price_cents, tags, created_at) values ('to-velvet-curtain','Velvet Curtain Panel','Heavy cotton velvet with a soft drape. Falls in long, quiet folds that hold a room together. 140x220cm, eyelet top.', _home, 79900, '{velvet,curtain,living room,drape}', _now - interval '1 day') returning id into _pid;
@@ -176,15 +145,15 @@ begin
     (_pid,'VCP-IVR','Ivory','{"colour":"Ivory"}',12),
     (_pid,'VCP-SLT','Slate','{"colour":"Slate"}',9);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[27], 'Heavy velvet curtain panel in soft ivory hanging from a brass rod', 0);
+    (_pid, '/products/to-velvet-curtain.svg', 'Heavy velvet curtain panel in soft ivory hanging from a brass rod', 0);
 
   -- 10. Marble Coaster Set — DISCOUNT (R249 → R319)
   insert into public.products (slug, name, description, category_id, base_price_cents, compare_at_cents, tags, created_at) values ('to-marble-coasters','Marble Coaster Set','Solid marble, lightly honed. Each one is a little different — that''s the point. Set of four with cork backing.', _home, 24900, 31900, '{marble,coasters,kitchen,gift}', _now - interval '10 hours') returning id into _pid;
   insert into public.product_variants (product_id, sku, name, options, stock) values
     (_pid,'MCS-4SET','Set of 4','{"set":"Set of 4"}',18);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[26], 'Set of four honed marble coasters in neutral tones', 0),
-    (_pid, _imgs[20], 'Marble coasters holding a glass of red wine',         1);
+    (_pid, '/products/to-marble-coasters.svg', 'Set of four honed marble coasters in neutral tones', 0),
+    (_pid, '/products/to-marble-coasters.svg', 'Marble coasters holding a glass of red wine',         1);
 
   -- ===================================================================
   -- WOMEN'S FASHION (10 products)
@@ -199,8 +168,8 @@ begin
     (_pid,'LWD-L', 'L', '{"size":"L"}', 10),
     (_pid,'LWD-XL','XL','{"size":"XL"}',6);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[11], 'Linen wrap midi dress in natural tone, modeled outdoors', 0),
-    (_pid, _imgs[12], 'Midi dress flat-lay with a woven tote',                   1);
+    (_pid, '/products/to-wrap-midi-dress.svg', 'Linen wrap midi dress in natural tone, modeled outdoors', 0),
+    (_pid, '/products/to-wrap-midi-dress.svg', 'Midi dress flat-lay with a woven tote',                   1);
 
   -- 12. Silk-blend Blouse — FEATURED
   insert into public.products (slug, name, description, category_id, base_price_cents, is_featured, tags, created_at) values ('to-silk-blouse','Silk-blend Blouse','Silk-blend with a soft, weighty hand. Designed to be tucked, half-tucked, or left alone.', _wf, 64900, true, '{silk,blouse,workwear,gift}', _now - interval '6 hours') returning id into _pid;
@@ -215,8 +184,8 @@ begin
     (_pid,'SBB-IVR-M','Ivory / M','{"colour":"Ivory","size":"M"}',12),
     (_pid,'SBB-IVR-L','Ivory / L','{"colour":"Ivory","size":"L"}',6);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[12], 'Silk-blend blouse in blush, photographed on a hanger', 0),
-    (_pid, _imgs[13], 'Blouse styled with tailored trousers',                1);
+    (_pid, '/products/to-silk-blouse.svg', 'Silk-blend blouse in blush, photographed on a hanger', 0),
+    (_pid, '/products/to-silk-blouse.svg', 'Blouse styled with tailored trousers',                1);
 
   -- 13. Wide-leg Trouser
   insert into public.products (slug, name, description, category_id, base_price_cents, tags, created_at) values ('to-wide-leg-trouser','Wide-leg Trouser','A clean high-rise with a fluid leg. Sits where it should and stays there through the day.', _wf, 89900, '{trouser,wide-leg,workwear,linen}', _now - interval '1 day') returning id into _pid;
@@ -227,8 +196,8 @@ begin
     (_pid,'WLT-L', 'L', '{"size":"L"}', 9),
     (_pid,'WLT-XL','XL','{"size":"XL"}',6);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[14], 'High-rise wide-leg trouser in oat, modeled',       0),
-    (_pid, _imgs[13], 'Wide-leg trouser styled with a tucked shirt',      1);
+    (_pid, '/products/to-wide-leg-trouser.svg', 'High-rise wide-leg trouser in oat, modeled',       0),
+    (_pid, '/products/to-wide-leg-trouser.svg', 'Wide-leg trouser styled with a tucked shirt',      1);
 
   -- 14. Cashmere-blend Knit Cardigan — DISCOUNT (R999 → R1299)
   insert into public.products (slug, name, description, category_id, base_price_cents, compare_at_cents, tags, created_at) values ('to-knit-cardigan','Cashmere-blend Knit Cardigan','Soft cashmere blend with ribbed cuffs and a relaxed boxy fit. The one you reach for by October.', _wf, 99900, 129900, '{cashmere,cardigan,knit,winter}', _now - interval '12 hours') returning id into _pid;
@@ -245,7 +214,7 @@ begin
     (_pid,'CKC-BLK-M', 'Black / M',   '{"colour":"Black","size":"M"}',   10),
     (_pid,'CKC-BLK-L', 'Black / L',   '{"colour":"Black","size":"L"}',   7);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[15], 'Boxy cashmere-blend cardigan in oatmeal, modeled', 0);
+    (_pid, '/products/to-knit-cardigan.svg', 'Boxy cashmere-blend cardigan in oatmeal, modeled', 0);
 
   -- 15. Leather Slide Sandal
   insert into public.products (slug, name, description, category_id, base_price_cents, tags, created_at) values ('to-summer-sandal','Leather Slide Sandal','Vegetable-tanned leather with a moulded footbed. Slides on, stays on, walks quiet.', _wf, 54900, '{leather,sandal,summer,slide}', _now - interval '3 hours') returning id into _pid;
@@ -259,8 +228,8 @@ begin
     (_pid,'LSS-BLK-7','Black / UK 7','{"colour":"Black","size":"UK 7"}',13),
     (_pid,'LSS-BLK-8','Black / UK 8','{"colour":"Black","size":"UK 8"}',8);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[16], 'Leather slide sandal in tan on a stone surface', 0),
-    (_pid, _imgs[17], 'Black leather slide sandal detail',             1);
+    (_pid, '/products/to-summer-sandal.svg', 'Leather slide sandal in tan on a stone surface', 0),
+    (_pid, '/products/to-summer-sandal.svg', 'Black leather slide sandal detail',             1);
 
   -- 16. Canvas Market Tote
   insert into public.products (slug, name, description, category_id, base_price_cents, tags, created_at) values ('to-canvas-tote','Canvas Market Tote','Heavyweight canvas with reinforced handles. Big enough for a laptop and a folded jumper. Gets softer the more you carry it.', _wf, 34900, '{canvas,tote,bag,everyday}', _now - interval '4 days') returning id into _pid;
@@ -269,7 +238,7 @@ begin
     (_pid,'CMT-BLK','Black', '{"colour":"Black"}',  20),
     (_pid,'CMT-OLV','Olive', '{"colour":"Olive"}',  15);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[18], 'Heavy canvas market tote with leather handles, photographed flat', 0);
+    (_pid, '/products/to-canvas-tote.svg', 'Heavy canvas market tote with leather handles, photographed flat', 0);
 
   -- 17. Pleated Midi Skirt
   insert into public.products (slug, name, description, category_id, base_price_cents, tags, created_at) values ('to-pleated-skirt','Pleated Midi Skirt','Sunray pleats that move when you do. Midi length, elasticated back waist, no zip in sight.', _wf, 59900, '{pleated,skirt,midi,flowing}', _now - interval '18 hours') returning id into _pid;
@@ -280,7 +249,7 @@ begin
     (_pid,'PMS-L', 'L', '{"size":"L"}', 9),
     (_pid,'PMS-XL','XL','{"size":"XL"}',6);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[13], 'Pleated midi skirt in soft sage, photographed on a hanger', 0);
+    (_pid, '/products/to-pleated-skirt.svg', 'Pleated midi skirt in soft sage, photographed on a hanger', 0);
 
   -- 18. Cropped Denim Jacket — FEATURED
   insert into public.products (slug, name, description, category_id, base_price_cents, is_featured, tags, created_at) values ('to-denim-jacket','Cropped Denim Jacket','Cropped, clean, broken-in from the first wear. Heavy enough to feel like denim, soft enough to forget about.', _wf, 89900, true, '{denim,jacket,cropped,classic}', _now - interval '9 hours') returning id into _pid;
@@ -291,8 +260,8 @@ begin
     (_pid,'CDJ-L', 'L', '{"size":"L"}', 9),
     (_pid,'CDJ-XL','XL','{"size":"XL"}',6);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[24], 'Cropped denim jacket in vintage wash, modeled', 0),
-    (_pid, _imgs[14], 'Denim jacket styled with wide-leg trousers',    1);
+    (_pid, '/products/to-denim-jacket.svg', 'Cropped denim jacket in vintage wash, modeled', 0),
+    (_pid, '/products/to-denim-jacket.svg', 'Denim jacket styled with wide-leg trousers',    1);
 
   -- 19. Long Cashmere Scarf
   insert into public.products (slug, name, description, category_id, base_price_cents, tags, created_at) values ('to-cashmere-scarf','Long Cashmere Scarf','Long, fine-gauge cashmere. Wear it long, doubled, or loosely knotted — it never looks like it''s trying.', _wf, 79900, '{cashmere,scarf,winter,gift}', _now - interval '2 days') returning id into _pid;
@@ -301,8 +270,8 @@ begin
     (_pid,'LCS-GRY','Soft Grey','{"colour":"Soft Grey"}', 12),
     (_pid,'LCS-BLK','Black',    '{"colour":"Black"}',     10);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[21], 'Long cashmere scarf in soft grey, draped on a wooden chair', 0),
-    (_pid, _imgs[19], 'Cashmere scarf styled with a wool coat',                      1);
+    (_pid, '/products/to-cashmere-scarf.svg', 'Long cashmere scarf in soft grey, draped on a wooden chair', 0),
+    (_pid, '/products/to-cashmere-scarf.svg', 'Cashmere scarf styled with a wool coat',                      1);
 
   -- 20. Linen Blazer — DISCOUNT (R1199 → R1549)
   insert into public.products (slug, name, description, category_id, base_price_cents, compare_at_cents, tags, created_at) values ('to-linen-blazer','Linen Blazer','A relaxed single-breasted blazer in soft Italian linen. The kind that earns its place on the back of a chair.', _wf, 119900, 154900, '{linen,blazer,workwear,summer}', _now - interval '14 hours') returning id into _pid;
@@ -313,8 +282,8 @@ begin
     (_pid,'LBL-L', 'L', '{"size":"L"}', 7),
     (_pid,'LBL-XL','XL','{"size":"XL"}',5);
   insert into public.product_images (product_id, url, alt_text, sort_order) values
-    (_pid, _imgs[12], 'Relaxed single-breasted linen blazer in oat, modeled', 0),
-    (_pid, _imgs[11], 'Linen blazer styled over a midi dress',                1);
+    (_pid, '/products/to-linen-blazer.svg', 'Relaxed single-breasted linen blazer in oat, modeled', 0),
+    (_pid, '/products/to-linen-blazer.svg', 'Linen blazer styled over a midi dress',                1);
 
 end;
 $$;

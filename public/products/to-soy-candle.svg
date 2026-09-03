@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <linearGradient id="g42" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EFB6C2"/>
+      <stop offset="100%" stop-color="#E8A0AE"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#g42)"/>
+  <text x="400" y="368.0" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="54" font-weight="500" fill="#FFFFFF" letter-spacing="-0.5"><tspan x="400" dy="0">Soy Wax Scented</tspan><tspan x="400" dy="64">Candle</tspan></text>
+  <text x="400" y="720" text-anchor="middle" font-family="-apple-system, system-ui, 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF" letter-spacing="6" opacity="0.85">WOMEN</text>
+  <circle cx="400" cy="752" r="3" fill="#FFFFFF" opacity="0.6"/>
+</svg>
