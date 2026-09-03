@@ -36,9 +36,9 @@ export const brand = {
   },
 
   // Files (paths are relative to /public so usable in <img src> or CSS url())
-  logo: '/olia-logo.jpg',
+  logo: '/olia-logo.png',
   favicon: '/olia-app-icon.jpg',
-  ogDefault: '/olia-logo.jpg', // paired with opengraph-image.tsx
+  ogDefault: '/olia-logo.png', // paired with opengraph-image.tsx
 
   // Contact — Olia (Time-Out Home and Style)
   contact: {
