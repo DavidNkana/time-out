@@ -27,8 +27,8 @@ export default async function HomePage() {
 
         {/* Promo banner 1 — full-bleed image, between Categories and Today's picks */}
         <PromoBanner
-          imageUrl="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=2000&q=70"
-          alt="A calm, naturally lit living space"
+          imageUrl="/hero/home-interior.svg"
+          alt="A calm living space with soft-pink walls and warm-grey furnishings"
           eyebrow={brand.home.eyebrow || 'Welcome to Timeout'}
           headline={brand.home.headline || `Take a beat. Then ${brand.name}.`}
           subheadline={brand.home.subheadline || 'A focused, distraction-free way to find what you came for.'}

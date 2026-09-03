@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1000" width="2000" height="1000" preserveAspectRatio="xMidYMid slice">
+  <!--
+    Time-Out home hero illustration.
+    Stylized living-room scene in the soft-pink + warm-grey palette.
+    Self-hosted SVG so it never rots; copy overlays the left, so the
+    room is composed to be visually quieter there and busier on the right.
+  -->
+
+  <defs>
+    <!-- Wall gradient: warm off-white fading to a soft pink wash -->
+    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#F1EFEC"/>
+      <stop offset="55%"  stop-color="#F6E9E9"/>
+      <stop offset="100%" stop-color="#E8A0AE"/>
+    </linearGradient>
+
+    <!-- Window light streaming in -->
+    <linearGradient id="windowLight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#FBE9EE" stop-opacity="0"/>
+      <stop offset="50%"  stop-color="#FBE9EE" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#FBE9EE" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Floor wood -->
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#D8C5B5"/>
+      <stop offset="100%" stop-color="#B89A85"/>
+    </linearGradient>
+
+    <!-- Sofa fabric -->
+    <linearGradient id="sofa" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#9D988E"/>
+      <stop offset="100%" stop-color="#706B62"/>
+    </linearGradient>
+
+    <!-- Pink pillow -->
+    <linearGradient id="pillow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#E8A0AE"/>
+      <stop offset="100%" stop-color="#D17585"/>
+    </linearGradient>
+
+    <!-- Lamp shade glow -->
+    <radialGradient id="lampGlow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%"   stop-color="#FBE9EE" stop-opacity="0.7"/>
+      <stop offset="60%"  stop-color="#FBE9EE" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#FBE9EE" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Subtle floor shadow under furniture -->
+    <radialGradient id="floorShadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#1F1E1C" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#1F1E1C" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Wall -->
+  <rect width="2000" height="760" fill="url(#wall)"/>
+
+  <!-- Floor -->
+  <rect y="760" width="2000" height="240" fill="url(#floor)"/>
+
+  <!-- Floor seam line -->
+  <line x1="0" y1="760" x2="2000" y2="760" stroke="#9C806E" stroke-width="2" opacity="0.5"/>
+
+  <!-- Soft floor-board lines -->
+  <g stroke="#9C806E" stroke-width="1" opacity="0.25">
+    <line x1="0" y1="830" x2="2000" y2="830"/>
+    <line x1="0" y1="910" x2="2000" y2="910"/>
+    <line x1="0" y1="985" x2="2000" y2="985"/>
+  </g>
+
+  <!-- Window on the left wall -->
+  <g>
+    <rect x="180" y="180" width="380" height="420" rx="4" fill="#FAF6F4" stroke="#C9C5BD" stroke-width="3"/>
+    <line x1="370" y1="180" x2="370" y2="600" stroke="#C9C5BD" stroke-width="3"/>
+    <line x1="180" y1="390" x2="560" y2="390" stroke="#C9C5BD" stroke-width="3"/>
+    <!-- Curtain, soft pink -->
+    <path d="M 150 180 Q 140 180 130 200 L 130 600 Q 130 620 150 620 L 180 620 L 180 180 Z" fill="#E8A0AE" opacity="0.85"/>
+    <path d="M 560 180 Q 570 180 580 200 L 580 600 Q 580 620 560 620 L 530 620 L 530 180 Z" fill="#D17585" opacity="0.85"/>
+    <!-- Light pouring out -->
+    <rect x="180" y="600" width="380" height="200" fill="url(#windowLight)"/>
+  </g>
+
+  <!-- Framed abstract art on the back wall -->
+  <g>
+    <rect x="900" y="170" width="280" height="200" fill="#FAF6F4" stroke="#26241D" stroke-width="6"/>
+    <!-- Abstract pink + grey composition inside the frame -->
+    <circle cx="990" cy="270" r="48" fill="#E8A0AE"/>
+    <rect x="1050" y="220" width="100" height="100" fill="#9D988E"/>
+    <rect x="1050" y="320" width="60" height="20" fill="#E8A0AE"/>
+    <rect x="900" y="370" width="280" height="0" stroke="#26241D" stroke-width="0"/>
+  </g>
+
+  <!-- Smaller framed print, second piece -->
+  <g>
+    <rect x="1220" y="220" width="160" height="220" fill="#FAF6F4" stroke="#26241D" stroke-width="4"/>
+    <line x1="1220" y1="330" x2="1380" y2="330" stroke="#9D988E" stroke-width="3"/>
+    <rect x="1240" y="260" width="120" height="40" fill="#E8A0AE"/>
+    <rect x="1240" y="350" width="80" height="6" fill="#9D988E"/>
+    <rect x="1240" y="368" width="60" height="6" fill="#9D988E" opacity="0.6"/>
+  </g>
+
+  <!-- Sofa — center-left -->
+  <g>
+    <!-- Floor shadow under sofa -->
+    <ellipse cx="780" cy="780" rx="380" ry="22" fill="url(#floorShadow)"/>
+
+    <!-- Sofa back -->
+    <rect x="490" y="520" width="580" height="200" rx="22" fill="url(#sofa)"/>
+    <!-- Sofa seat base -->
+    <rect x="470" y="680" width="620" height="100" rx="14" fill="#9D988E"/>
+    <!-- Sofa arms -->
+    <rect x="470" y="540" width="50" height="240" rx="14" fill="#9D988E"/>
+    <rect x="1040" y="540" width="50" height="240" rx="14" fill="#9D988E"/>
+    <!-- Cushion seams -->
+    <line x1="650" y1="540" x2="650" y2="720" stroke="#706B62" stroke-width="2" opacity="0.5"/>
+    <line x1="780" y1="540" x2="780" y2="720" stroke="#706B62" stroke-width="2" opacity="0.5"/>
+    <line x1="910" y1="540" x2="910" y2="720" stroke="#706B62" stroke-width="2" opacity="0.5"/>
+
+    <!-- Pink throw pillows -->
+    <rect x="540" y="560" width="100" height="100" rx="14" fill="url(#pillow)" transform="rotate(-6 590 610)"/>
+    <rect x="900" y="560" width="100" height="100" rx="14" fill="url(#pillow)" transform="rotate(8 950 610)"/>
+    <!-- Small grey lumbar pillow in middle -->
+    <rect x="720" y="595" width="140" height="60" rx="10" fill="#C9C5BD" transform="rotate(-3 790 625)"/>
+
+    <!-- Throw blanket draped over right arm -->
+    <path d="M 1010 720 Q 1080 740 1080 800 L 1140 800 Q 1140 740 1100 720 L 1010 720 Z" fill="#E8A0AE" opacity="0.85"/>
+  </g>
+
+  <!-- Coffee table in front of sofa -->
+  <g>
+    <!-- Floor shadow -->
+    <ellipse cx="780" cy="900" rx="260" ry="14" fill="url(#floorShadow)"/>
+    <!-- Table top -->
+    <rect x="620" y="820" width="320" height="20" rx="4" fill="#3F3D38"/>
+    <!-- Table legs -->
+    <rect x="640" y="840" width="8" height="60" fill="#26241D"/>
+    <rect x="912" y="840" width="8" height="60" fill="#26241D"/>
+    <!-- Vase on the table -->
+    <path d="M 720 800 Q 720 770 740 770 L 770 770 Q 790 770 790 800 L 785 820 L 725 820 Z" fill="#FAF6F4" stroke="#9D988E" stroke-width="2"/>
+    <!-- Branch from vase -->
+    <line x1="755" y1="770" x2="745" y2="700" stroke="#706B62" stroke-width="2"/>
+    <line x1="755" y1="770" x2="775" y2="720" stroke="#706B62" stroke-width="2"/>
+    <line x1="755" y1="770" x2="755" y2="690" stroke="#706B62" stroke-width="2"/>
+    <circle cx="745" cy="700" r="14" fill="#E8A0AE"/>
+    <circle cx="775" cy="720" r="12" fill="#D17585"/>
+    <circle cx="755" cy="688" r="14" fill="#E8A0AE"/>
+    <!-- Stack of books on table -->
+    <rect x="820" y="800" width="60" height="20" fill="#9D988E"/>
+    <rect x="824" y="784" width="56" height="16" fill="#E8A0AE"/>
+    <rect x="828" y="770" width="52" height="14" fill="#FAF6F4" stroke="#9D988E" stroke-width="1"/>
+  </g>
+
+  <!-- Floor lamp on the right -->
+  <g>
+    <!-- Glow halo behind lamp -->
+    <circle cx="1450" cy="420" r="280" fill="url(#lampGlow)"/>
+    <!-- Pole -->
+    <rect x="1445" y="380" width="10" height="420" fill="#3F3D38"/>
+    <!-- Base -->
+    <ellipse cx="1450" cy="800" rx="50" ry="10" fill="#26241D"/>
+    <!-- Shade -->
+    <path d="M 1380 270 L 1520 270 L 1500 380 L 1400 380 Z" fill="#FAF6F4" stroke="#9D988E" stroke-width="2"/>
+    <ellipse cx="1450" cy="270" rx="70" ry="10" fill="#F5E6D3"/>
+  </g>
+
+  <!-- Plant in ceramic pot, far right -->
+  <g>
+    <!-- Pot -->
+    <path d="M 1700 720 L 1840 720 L 1820 820 L 1720 820 Z" fill="#FAF6F4" stroke="#9D988E" stroke-width="2"/>
+    <ellipse cx="1770" cy="720" rx="70" ry="8" fill="#E8E5E0"/>
+    <!-- Foliage -->
+    <ellipse cx="1740" cy="640" rx="40" ry="80" fill="#706B62" transform="rotate(-15 1740 640)"/>
+    <ellipse cx="1800" cy="630" rx="36" ry="80" fill="#9D988E" transform="rotate(12 1800 630)"/>
+    <ellipse cx="1770" cy="580" rx="44" ry="90" fill="#504C45"/>
+    <ellipse cx="1760" cy="540" rx="30" ry="60" fill="#706B62"/>
+  </g>
+
+  <!-- Subtle side table on the far right, partially behind plant -->
+  <g>
+    <rect x="1640" y="760" width="60" height="60" fill="#FAF6F4" stroke="#9D988E" stroke-width="2"/>
+    <rect x="1650" y="820" width="40" height="60" fill="#9D988E"/>
+    <!-- Candle on side table -->
+    <rect x="1655" y="730" width="20" height="30" rx="2" fill="#E8A0AE"/>
+    <line x1="1665" y1="730" x2="1665" y2="720" stroke="#26241D" stroke-width="1.5"/>
+  </g>
+
+  <!-- Soft vignette to keep left side from looking too bright behind text -->
+  <rect x="0" y="0" width="700" height="1000" fill="#1F1E1C" opacity="0.18"/>
+</svg>
