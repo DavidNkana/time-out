@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <!--
+    Footwear category card.
+    Soft-pink gradient + stylized low-top sneaker, side profile.
+  -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#FBE9EE"/>
+      <stop offset="60%"  stop-color="#F7D4DC"/>
+      <stop offset="100%" stop-color="#E8A0AE"/>
+    </linearGradient>
+    <linearGradient id="upper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#FAF6F4"/>
+      <stop offset="100%" stop-color="#C9C5BD"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="600" fill="url(#bg)"/>
+
+  <!-- Decorative dots -->
+  <g fill="#FAF6F4" opacity="0.18">
+    <circle cx="80"  cy="100" r="6"/>
+    <circle cx="540" cy="120" r="8"/>
+    <circle cx="60"  cy="320" r="5"/>
+    <circle cx="520" cy="380" r="6"/>
+    <circle cx="100" cy="460" r="7"/>
+  </g>
+
+  <!-- Side-profile sneaker (low-top), centered around y=340 -->
+  <!-- Sole -->
+  <path d="M 130 420 Q 130 410 142 410 L 470 410 Q 498 410 498 430 Q 498 446 470 446 L 142 446 Q 130 446 130 436 Z"
+        fill="#FAF6F4" stroke="#706B62" stroke-width="2.5"/>
+  <!-- Sole stripe -->
+  <path d="M 130 432 L 498 432" stroke="#9D988E" stroke-width="2" opacity="0.5"/>
+
+  <!-- Heel patch (back, darker) -->
+  <path d="M 130 360 Q 130 348 144 348 L 200 348 L 200 410 L 130 410 Z"
+        fill="#9D988E" stroke="#706B62" stroke-width="2"/>
+  <!-- Heel stitching -->
+  <line x1="200" y1="358" x2="200" y2="408" stroke="#706B62" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+  <!-- Upper (toe box + vamp) -->
+  <path d="M 200 348 Q 210 280 280 270 L 380 270 Q 430 270 460 320 L 488 410 L 200 410 Z"
+        fill="url(#upper)" stroke="#706B62" stroke-width="2.5"/>
+
+  <!-- Toe cap (slightly darker overlay on the front) -->
+  <path d="M 420 285 Q 460 295 478 340 L 488 408 L 410 408 L 410 285 Z"
+        fill="#E8A0AE" opacity="0.85" stroke="#9D988E" stroke-width="1.5"/>
+
+  <!-- Pink side panel / swoosh-style accent -->
+  <path d="M 220 380 Q 280 340 360 350 L 380 372 Q 300 360 240 395 Z"
+        fill="#D17585" stroke="#9D988E" stroke-width="1.5"/>
+
+  <!-- Tongue -->
+  <path d="M 240 280 Q 250 260 270 258 L 320 258 Q 340 260 350 280 L 350 320 L 240 320 Z"
+        fill="#FAF6F4" stroke="#706B62" stroke-width="2"/>
+
+  <!-- Laces -->
+  <g stroke="#706B62" stroke-width="3" stroke-linecap="round" fill="none">
+    <line x1="252" y1="295" x2="338" y2="290"/>
+    <line x1="254" y1="310" x2="340" y2="306"/>
+  </g>
+  <!-- Lace eyelets -->
+  <g fill="#706B62">
+    <circle cx="252" cy="295" r="2"/>
+    <circle cx="338" cy="290" r="2"/>
+    <circle cx="254" cy="310" r="2"/>
+    <circle cx="340" cy="306" r="2"/>
+  </g>
+
+  <!-- Stitching detail along upper -->
+  <path d="M 200 348 Q 210 282 280 272 L 380 272 Q 428 272 458 320"
+        fill="none" stroke="#9D988E" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.7"/>
+
+  <!-- Shadow under shoe -->
+  <ellipse cx="314" cy="468" rx="200" ry="8" fill="#706B62" opacity="0.18"/>
+
+  <!-- Floor band -->
+  <rect y="500" width="600" height="100" fill="#D8C5B5" opacity="0.4"/>
+
+  <!-- Category label -->
+  <text x="300" y="555" text-anchor="middle" font-family="Georgia, serif" font-size="40" font-weight="600" fill="#FAF6F4" letter-spacing="-1">FOOTWEAR</text>
+  <text x="300" y="585" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#FAF6F4" letter-spacing="3" opacity="0.85">SHOES &amp; SLIDES</text>
+</svg>

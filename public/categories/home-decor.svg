@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <!--
+    Home Decor category card.
+    Soft-pink gradient + stylized composition of a vase with branches
+    and a framed picture behind.
+  -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#FBE9EE"/>
+      <stop offset="60%"  stop-color="#F7D4DC"/>
+      <stop offset="100%" stop-color="#E8A0AE"/>
+    </linearGradient>
+    <linearGradient id="vase" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#FAF6F4"/>
+      <stop offset="100%" stop-color="#C9C5BD"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="600" fill="url(#bg)"/>
+
+  <!-- Decorative dots -->
+  <g fill="#FAF6F4" opacity="0.18">
+    <circle cx="80"  cy="100" r="6"/>
+    <circle cx="540" cy="120" r="8"/>
+    <circle cx="100" cy="460" r="7"/>
+    <circle cx="500" cy="500" r="6"/>
+  </g>
+
+  <!-- Framed picture (behind, to the left) -->
+  <rect x="110" y="180" width="170" height="220" fill="#FAF6F4" stroke="#3F3D38" stroke-width="4"/>
+  <rect x="122" y="192" width="146" height="196" fill="#F0B7C1" opacity="0.55"/>
+  <!-- Abstract inside: two soft circles + a horizon -->
+  <circle cx="170" cy="270" r="36" fill="#E8A0AE"/>
+  <circle cx="240" cy="250" r="26" fill="#D17585" opacity="0.85"/>
+  <rect x="122" y="340" width="146" height="48" fill="#9D988E" opacity="0.65"/>
+
+  <!-- Picture frame shadow -->
+  <rect x="282" y="184" width="170" height="220" fill="#3F3D38" opacity="0.08"/>
+
+  <!-- Vase (front, right of center) -->
+  <!-- Vase body -->
+  <path d="M 350 360 Q 340 400 332 440 Q 330 470 360 478 L 460 478 Q 488 470 486 440 Q 478 400 470 360 Z"
+        fill="url(#vase)" stroke="#9D988E" stroke-width="2.5"/>
+  <!-- Vase neck -->
+  <path d="M 360 320 L 460 320 L 470 360 L 350 360 Z" fill="#FAF6F4" stroke="#9D988E" stroke-width="2.5"/>
+  <!-- Vase lip -->
+  <ellipse cx="410" cy="320" rx="50" ry="6" fill="#FAF6F4" stroke="#9D988E" stroke-width="2"/>
+  <!-- Vase highlight -->
+  <path d="M 372 370 Q 368 410 362 450" fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.5"/>
+
+  <!-- Branches coming out of vase -->
+  <g stroke="#706B62" stroke-width="2.5" fill="none" stroke-linecap="round">
+    <path d="M 410 320 Q 380 250 350 180"/>
+    <path d="M 410 320 Q 440 240 460 170"/>
+    <path d="M 410 320 Q 410 250 408 200"/>
+  </g>
+  <!-- Leaves / buds -->
+  <g fill="#9D988E">
+    <ellipse cx="346" cy="194" rx="14" ry="6" transform="rotate(-30 346 194)"/>
+    <ellipse cx="370" cy="240" rx="12" ry="5" transform="rotate(-20 370 240)"/>
+    <ellipse cx="462" cy="184" rx="14" ry="6" transform="rotate(40 462 184)"/>
+    <ellipse cx="440" cy="234" rx="12" ry="5" transform="rotate(25 440 234)"/>
+  </g>
+  <!-- Pink bud accents -->
+  <g fill="#E8A0AE">
+    <circle cx="408" cy="200" r="9"/>
+    <circle cx="350" cy="178" r="8"/>
+    <circle cx="460" cy="170" r="8"/>
+  </g>
+
+  <!-- Small candle on the floor in front -->
+  <rect x="240" y="448" width="36" height="44" fill="#FAF6F4" stroke="#9D988E" stroke-width="1.5"/>
+  <ellipse cx="258" cy="448" rx="18" ry="4" fill="#C9C5BD"/>
+  <!-- Flame -->
+  <path d="M 258 432 Q 252 422 258 414 Q 264 422 258 432 Z" fill="#E8A0AE"/>
+  <ellipse cx="258" cy="426" rx="2" ry="6" fill="#D17585"/>
+
+  <!-- Floor band -->
+  <rect y="500" width="600" height="100" fill="#D8C5B5" opacity="0.4"/>
+
+  <!-- Category label -->
+  <text x="300" y="555" text-anchor="middle" font-family="Georgia, serif" font-size="38" font-weight="600" fill="#FAF6F4" letter-spacing="-0.5">HOME DECOR</text>
+  <text x="300" y="585" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#FAF6F4" letter-spacing="3" opacity="0.85">PILLOWS, CANDLES, VASES</text>
+</svg>

@@ -3,6 +3,7 @@ import { createAdminClient } from '@/lib/supabase/admin';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { EditProductForm } from '@/components/admin/EditProductForm';
+import { getAllCategories } from '@/lib/catalog/queries';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -20,11 +21,9 @@ export default async function EditProductPage({ params }: Props) {
 
   if (!product) notFound();
 
-  const { data: categories } = await supabase
-    .from('categories')
-    .select('id, name, slug')
-    .eq('is_active', true)
-    .order('sort_order');
+  // Admin sees every category (active + inactive) so products can be filed
+  // into granular inactive buckets for internal categorization.
+  const allCategories = await getAllCategories();
 
   const { data: images } = await supabase
     .from('product_images')
@@ -48,7 +47,7 @@ export default async function EditProductPage({ params }: Props) {
 
         <div className="mt-6">
           <EditProductForm
-            categories={categories ?? []}
+            categories={allCategories.map((c) => ({ id: c.id, name: c.name, slug: c.slug }))}
             product={product as any}
             existingImages={images ?? []}
             existingVariants={(variants ?? []).map((v: any) => ({

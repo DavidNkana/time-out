@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <!--
+    Bath category card.
+    Soft-pink gradient + stylized stack of folded towels with a soap bar.
+  -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#FBE9EE"/>
+      <stop offset="60%"  stop-color="#F7D4DC"/>
+      <stop offset="100%" stop-color="#E8A0AE"/>
+    </linearGradient>
+    <linearGradient id="towel1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#FAF6F4"/>
+      <stop offset="100%" stop-color="#C9C5BD"/>
+    </linearGradient>
+    <linearGradient id="towel2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#F0B7C1"/>
+      <stop offset="100%" stop-color="#E8A0AE"/>
+    </linearGradient>
+    <linearGradient id="towel3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#D17585"/>
+      <stop offset="100%" stop-color="#9D988E"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="600" fill="url(#bg)"/>
+
+  <!-- Decorative dots -->
+  <g fill="#FAF6F4" opacity="0.18">
+    <circle cx="80"  cy="100" r="6"/>
+    <circle cx="540" cy="120" r="8"/>
+    <circle cx="60"  cy="320" r="5"/>
+    <circle cx="520" cy="380" r="6"/>
+    <circle cx="100" cy="470" r="7"/>
+  </g>
+
+  <!-- Stack of three folded towels (decreasing width up the stack) -->
+
+  <!-- Bottom towel (largest, oatmeal) -->
+  <g>
+    <rect x="120" y="380" width="360" height="80" rx="6" fill="url(#towel1)" stroke="#9D988E" stroke-width="2.5"/>
+    <rect x="120" y="380" width="360" height="14" fill="#9D988E" opacity="0.55"/>
+    <!-- Subtle stripe -->
+    <line x1="120" y1="430" x2="480" y2="430" stroke="#9D988E" stroke-width="1.5" opacity="0.45"/>
+    <!-- Fold lines on the right -->
+    <g stroke="#9D988E" stroke-width="1" opacity="0.4">
+      <line x1="430" y1="380" x2="430" y2="460"/>
+      <line x1="450" y1="380" x2="450" y2="460"/>
+      <line x1="470" y1="380" x2="470" y2="460"/>
+    </g>
+  </g>
+
+  <!-- Middle towel (slightly smaller, pink) -->
+  <g>
+    <rect x="140" y="300" width="320" height="80" rx="6" fill="url(#towel2)" stroke="#9D988E" stroke-width="2.5"/>
+    <rect x="140" y="300" width="320" height="14" fill="#9D988E" opacity="0.45"/>
+    <line x1="140" y1="350" x2="460" y2="350" stroke="#9D988E" stroke-width="1.5" opacity="0.45"/>
+    <g stroke="#9D988E" stroke-width="1" opacity="0.4">
+      <line x1="400" y1="300" x2="400" y2="380"/>
+      <line x1="420" y1="300" x2="420" y2="380"/>
+      <line x1="440" y1="300" x2="440" y2="380"/>
+    </g>
+  </g>
+
+  <!-- Top towel (smallest, dusty rose) -->
+  <g>
+    <rect x="170" y="220" width="260" height="80" rx="6" fill="url(#towel3)" stroke="#706B62" stroke-width="2.5"/>
+    <rect x="170" y="220" width="260" height="14" fill="#706B62" opacity="0.5"/>
+    <line x1="170" y1="270" x2="430" y2="270" stroke="#FAF6F4" stroke-width="1.5" opacity="0.55"/>
+    <g stroke="#FAF6F4" stroke-width="1" opacity="0.45">
+      <line x1="380" y1="220" x2="380" y2="300"/>
+      <line x1="400" y1="220" x2="400" y2="300"/>
+      <line x1="420" y1="220" x2="420" y2="300"/>
+    </g>
+  </g>
+
+  <!-- Soap bar on top of stack -->
+  <g transform="translate(245 180)">
+    <rect x="0" y="0" width="110" height="36" rx="6" fill="#FAF6F4" stroke="#9D988E" stroke-width="2"/>
+    <rect x="0" y="0" width="110" height="6"  fill="#C9C5BD"/>
+    <!-- Soap embossed circle -->
+    <circle cx="55" cy="20" r="10" fill="none" stroke="#9D988E" stroke-width="1.2" opacity="0.6"/>
+    <!-- Highlight -->
+    <rect x="4" y="10" width="6" height="22" rx="2" fill="#FFFFFF" opacity="0.5"/>
+  </g>
+
+  <!-- Eucalyptus sprig draped over the stack -->
+  <g>
+    <path d="M 400 230 Q 460 220 500 250" fill="none" stroke="#706B62" stroke-width="2.5" stroke-linecap="round"/>
+    <g fill="#9D988E">
+      <ellipse cx="430" cy="222" rx="10" ry="5" transform="rotate(-20 430 222)"/>
+      <ellipse cx="450" cy="226" rx="10" ry="5" transform="rotate(15 450 226)"/>
+      <ellipse cx="472" cy="234" rx="10" ry="5" transform="rotate(-10 472 234)"/>
+      <ellipse cx="492" cy="246" rx="10" ry="5" transform="rotate(20 492 246)"/>
+    </g>
+  </g>
+
+  <!-- A few floating bubbles for atmosphere -->
+  <g fill="#FAF6F4" opacity="0.45">
+    <circle cx="110" cy="220" r="14"/>
+    <circle cx="90"  cy="180" r="8"/>
+    <circle cx="130" cy="160" r="6"/>
+    <circle cx="500" cy="150" r="10"/>
+    <circle cx="520" cy="190" r="6"/>
+  </g>
+
+  <!-- Floor band -->
+  <rect y="500" width="600" height="100" fill="#D8C5B5" opacity="0.4"/>
+
+  <!-- Category label -->
+  <text x="300" y="555" text-anchor="middle" font-family="Georgia, serif" font-size="40" font-weight="600" fill="#FAF6F4" letter-spacing="-1">BATH</text>
+  <text x="300" y="585" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#FAF6F4" letter-spacing="3" opacity="0.85">TOWELS &amp; BATH ESSENTIALS</text>
+</svg>

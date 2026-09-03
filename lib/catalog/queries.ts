@@ -21,6 +21,22 @@ export async function getCategories(): Promise<Category[]> {
   return data ?? [];
 }
 
+/**
+ * All categories regardless of active flag — admin-only surfaces (product forms,
+ * admin lists) need to see the full taxonomy even though the storefront surfaces
+ * only the active set.
+ */
+export async function getAllCategories(): Promise<Category[]> {
+  const supabase = await createClient();
+  const { data, error } = (await supabase
+    .from('categories')
+    .select('*')
+    .order('is_active', { ascending: false })
+    .order('sort_order', { ascending: true })) as any;
+  if (error) throw error;
+  return data ?? [];
+}
+
 export async function getCategoryBySlug(slug: string): Promise<Category | null> {
   const supabase = await createClient();
   const { data, error } = (await supabase

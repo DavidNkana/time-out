@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <!--
+    Bags & Accessories category card.
+    Soft-pink gradient + stylized tote bag with a draped scarf.
+  -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#FBE9EE"/>
+      <stop offset="55%"  stop-color="#F0B7C1"/>
+      <stop offset="100%" stop-color="#D17585"/>
+    </linearGradient>
+    <linearGradient id="bag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#FAF6F4"/>
+      <stop offset="100%" stop-color="#E8A0AE"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="600" fill="url(#bg)"/>
+
+  <!-- Decorative dots -->
+  <g fill="#FAF6F4" opacity="0.18">
+    <circle cx="80"  cy="120" r="6"/>
+    <circle cx="540" cy="100" r="8"/>
+    <circle cx="60"  cy="340" r="5"/>
+    <circle cx="510" cy="420" r="6"/>
+    <circle cx="120" cy="470" r="7"/>
+  </g>
+
+  <!-- Tote handles -->
+  <path d="M 230 200 Q 230 130 300 130 Q 370 130 370 200"
+        fill="none" stroke="#706B62" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Tote body -->
+  <path d="M 180 210 L 420 210 L 410 460 Q 408 478 390 478 L 210 478 Q 192 478 190 460 Z"
+        fill="url(#bag)" stroke="#9D988E" stroke-width="2.5"/>
+
+  <!-- Tote top fold -->
+  <rect x="180" y="210" width="240" height="14" fill="#FAF6F4" stroke="#9D988E" stroke-width="2"/>
+
+  <!-- Tote center seam -->
+  <line x1="300" y1="224" x2="300" y2="478" stroke="#9D988E" stroke-width="1.2" opacity="0.5"/>
+
+  <!-- Tote side seams -->
+  <line x1="220" y1="224" x2="216" y2="478" stroke="#9D988E" stroke-width="1.2" opacity="0.45"/>
+  <line x1="380" y1="224" x2="384" y2="478" stroke="#9D988E" stroke-width="1.2" opacity="0.45"/>
+
+  <!-- Front pocket -->
+  <rect x="240" y="320" width="120" height="100" rx="4" fill="#D17585" opacity="0.7" stroke="#9D988E" stroke-width="1.5"/>
+  <!-- Pocket button -->
+  <circle cx="300" cy="340" r="6" fill="#FAF6F4" stroke="#706B62" stroke-width="1.5"/>
+
+  <!-- Subtle fabric folds -->
+  <g stroke="#9D988E" stroke-width="1" opacity="0.35" fill="none">
+    <path d="M 210 250 Q 215 360 220 470"/>
+    <path d="M 280 250 Q 282 360 280 470"/>
+    <path d="M 320 250 Q 320 360 320 470"/>
+    <path d="M 380 250 Q 378 360 372 470"/>
+  </g>
+
+  <!-- Draped scarf (small detail) over the right shoulder of the tote -->
+  <path d="M 410 220 Q 460 240 470 280 Q 472 310 450 320 Q 420 318 408 290 Z"
+        fill="#9D988E" opacity="0.85" stroke="#706B62" stroke-width="1.5"/>
+  <!-- Scarf pattern (stripes) -->
+  <g stroke="#FAF6F4" stroke-width="2" opacity="0.7" fill="none">
+    <line x1="416" y1="248" x2="464" y2="262"/>
+    <line x1="416" y1="270" x2="468" y2="282"/>
+    <line x1="418" y1="292" x2="464" y2="304"/>
+  </g>
+
+  <!-- Shadow under tote -->
+  <ellipse cx="300" cy="490" rx="160" ry="6" fill="#706B62" opacity="0.2"/>
+
+  <!-- Floor band -->
+  <rect y="500" width="600" height="100" fill="#B89A85" opacity="0.4"/>
+
+  <!-- Category label -->
+  <text x="300" y="555" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-weight="600" fill="#FAF6F4" letter-spacing="-0.5">BAGS &amp; ACCESSORIES</text>
+  <text x="300" y="585" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#FAF6F4" letter-spacing="3" opacity="0.85">TOTES, CROSSBODIES, SCARVES</text>
+</svg>

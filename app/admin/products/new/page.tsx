@@ -1,18 +1,15 @@
 import { requireAdmin } from '@/lib/auth/session';
-import { createAdminClient } from '@/lib/supabase/admin';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { NewProductForm } from '@/components/admin/NewProductForm';
+import { getAllCategories } from '@/lib/catalog/queries';
 import Link from 'next/link';
 
 export default async function NewProductPage() {
   await requireAdmin();
-  const supabase = await createAdminClient();
-  const { data: categories } = await supabase
-    .from('categories')
-    .select('id, name, slug')
-    .eq('is_active', true)
-    .order('sort_order');
+  // Admin sees every category (active + inactive) so products can be filed
+  // into granular inactive buckets for internal categorization.
+  const categories = await getAllCategories();
 
   return (
     <>
@@ -23,7 +20,7 @@ export default async function NewProductPage() {
         <p className="mt-1 text-sm text-brand-600">Create a product with variants, images, and pricing.</p>
 
         <div className="mt-6">
-          <NewProductForm categories={categories ?? []} />
+          <NewProductForm categories={categories.map((c) => ({ id: c.id, name: c.name, slug: c.slug }))} />
         </div>
       </main>
       <Footer />

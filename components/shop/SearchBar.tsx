@@ -12,20 +12,33 @@ type SearchResult = {
   image_url: string | null;
 };
 
-const NAV_LINKS = [
-  { href: '/c/home', label: 'Home' },
-  { href: '/c/womens-fashion', label: "Women's Fashion" }
-];
+type CategoryLink = { href: string; label: string };
 
 export function SearchBar() {
   const router = useRouter();
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
   const [results, setResults] = useState<SearchResult[]>([]);
+  const [navLinks, setNavLinks] = useState<CategoryLink[]>([]);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const debouncedQuery = useDebounce(query, 250);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Pull the active storefront categories once on mount so the empty-query
+  // mobile sheet can show "Browse <Category>" links for the first 6 active slugs.
+  useEffect(() => {
+    fetch('/api/search/autocomplete')
+      .then((r) => r.json())
+      .then((data: { popular?: { slug: string; name: string }[] }) => {
+        const links = (data.popular ?? []).slice(0, 6).map((c) => ({
+          href: `/c/${c.slug}`,
+          label: c.name,
+        }));
+        setNavLinks(links);
+      })
+      .catch(() => setNavLinks([]));
+  }, []);
 
   useEffect(() => {
     if (debouncedQuery.length < 2) {
@@ -163,7 +176,7 @@ export function SearchBar() {
           {/* Show nav links when no query */}
           {query.length < 2 && (
             <ul className="divide-y divide-brand-100 bg-white">
-              {NAV_LINKS.map((l) => (
+              {navLinks.map((l) => (
                 <li key={l.href}>
                   <a href={l.href} onClick={() => setMobileOpen(false)} className="block px-4 py-3 text-sm text-brand-700 hover:bg-brand-50">
                     Browse {l.label}

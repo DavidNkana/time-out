@@ -5,23 +5,34 @@ import { createClient } from '@/lib/supabase/server';
  * GET /api/search/autocomplete?q=<term>
  *
  * Public. Lightweight endpoint for the header search dropdown.
- * Returns up to 8 product hits + matching category suggestions.
+ * Returns up to 8 product hits + matching category suggestions + the storefront's
+ * active categories as `popular` (used by the empty-query dropdown).
  *
  * No auth, no cookies, no image JOIN — just IDs and slugs the dropdown can render
  * with placeholder thumbnails. The full /search page fetches images + reviews.
  */
 export async function GET(req: NextRequest) {
   const q = (req.nextUrl.searchParams.get('q') ?? '').trim();
+
+  const supabase = await createClient();
+
+  // Active categories that drive the empty-query "popular" list. Always loaded
+  // (cheap) so the dropdown has a default set even before the user types.
+  const { data: popular } = await supabase
+    .from('categories')
+    .select('id, slug, name')
+    .eq('is_active', true)
+    .order('sort_order', { ascending: true })
+    .limit(6);
+
   if (!q || q.length < 2) {
     return NextResponse.json({
       products: [],
       categories: [],
       suggestions: [],
-      popular: getPopularCategories(),
+      popular: popular ?? [],
     });
   }
-
-  const supabase = await createClient();
 
   // 1. Category suggestions first (cheap, always-show on PLP fallback)
   const { data: cats } = await supabase
@@ -53,13 +64,4 @@ export async function GET(req: NextRequest) {
     suggestions: [], // reserved for future trending searches
     popular: [], // populated only when q is empty
   });
-}
-
-/** Returns the two Timeout categories for the empty-query dropdown */
-function getPopularCategories() {
-  // Static list — fast, no DB hit. These are the categories the home page shows.
-  return [
-    { id: 'home', slug: 'home', name: 'Home' },
-    { id: 'womens-fashion', slug: 'womens-fashion', name: "Women's Fashion" },
-  ];
 }

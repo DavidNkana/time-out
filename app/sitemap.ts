@@ -25,11 +25,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/auth/register`, changeFrequency: 'never', priority: 0.1 },
   ];
 
-  // Categories
+  // Categories — only surface the storefront-active set. Inactive slugs live in
+  // the DB for admin categorization but their /c/{slug} pages are not browseable.
   const { data: categories } = await supabase
     .from('categories')
     .select('slug, updated_at')
-    .order('name');
+    .eq('is_active', true)
+    .order('sort_order');
 
   const categoryRoutes: MetadataRoute.Sitemap = (categories ?? []).map((c: any) => ({
     url: `${SITE_URL}/c/${c.slug}`,
