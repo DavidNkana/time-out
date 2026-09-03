@@ -3,53 +3,63 @@ import { brand } from './lib/brand';
 
 /**
  * Brand palette sourced from /lib/brand.ts.
- * brand-* stays neutral/warm slate. accent-* is the Timeout primary (`#5B8DEF`).
+ *
+ * - `brand-*` is a warm soft-grey neutral (NOT cool blue-grey). Used for
+ *   chrome: text, borders, muted copy, dark surfaces.
+ * - `accent-*` is the Timeout pink scale. The 500 step IS the primary
+ *   (`brand.colors.primary`). Light steps (50/100/200) are derived live
+ *   via the `tint` helper from the primary, so changing `brand.colors.primary`
+ *   in `lib/brand.ts` propagates through the lighter end of the scale.
+ *   The deeper steps (300/400 and 600–950) are hand-curated brand values
+ *   that don't reduce to a single mix percentage against white/black
+ *   (the brief specifies exact hex targets), so they're pinned as literals.
  *
  * Rename `brand-*` or `accent-*` here whenever you want — search the
  * codebase for those class prefixes.
  */
-const { colors } = (() => {
-  const hex = (s: string) => s.replace('#', '');
-  const tint = (pct: number) => `color-mix(in srgb, ${brand.colors.primary} ${pct}%, white)`;
-  const shade = (pct: number) => `color-mix(in srgb, ${brand.colors.primary} ${pct}%, black)`;
-  void hex; void tint; void shade;
-  return { colors: null as any };
-})();
+const PRIMARY = brand.colors.primary;
+
+/** Mix `PRIMARY` with white — produces a lighter shade of the brand color. */
+const tint = (pct: number): string => `color-mix(in srgb, ${PRIMARY} ${pct}%, white)`;
+
+/** Mix `PRIMARY` with black — produces a darker shade of the brand color. */
+const shade = (pct: number): string => `color-mix(in srgb, ${PRIMARY} ${pct}%, black)`;
 
 const config: Config = {
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors: {
-        // Neutral base (kept stable — used for chrome)
+        // Warm soft-grey neutral (NOT cool blue-grey). Used for chrome.
         brand: {
-          50:  '#f4f6f7',
-          100: '#e6eaed',
-          200: '#c9d2d8',
-          300: '#a3b1bb',
-          400: '#788a98',
-          500: '#566c7d',
-          600: '#42566a',
-          700: '#374657',
-          800: '#2f3a48',
-          900: '#29313c',
-          950: '#1a1f26'
+          50:  '#FAF9F7',
+          100: '#F1EFEC',
+          200: '#E2DFD9',
+          300: '#C9C5BD',
+          400: '#9D988E',
+          500: '#706B62',
+          600: '#504C45',
+          700: '#3A372F',
+          800: '#26241D',
+          900: '#16150F',
+          950: '#0B0A08'
         },
-        // Timeout primary (`#5B8DEF`) — used for CTAs, badges, links
+        // Timeout pink — primary is `#E8A0AE` at the 500 step.
+        // Light steps derived via `tint()` so the primary change propagates.
         accent: {
-          50:  '#eef4ff',
-          100: '#dde9ff',
-          200: '#b8d1ff',
-          300: '#93baff',
-          400: '#6e9ff7',
-          500: '#5B8DEF',  // primary
-          600: '#4671d3',
-          700: '#3a5db4',
-          800: '#314d94',
-          900: '#283c75',
-          950: '#1a2755'
+          50:  tint(21),         // ≈ #FAEAEE
+          100: tint(43),         // ≈ #F5D5DC
+          200: tint(75),         // ≈ #EEB7C2
+          300: '#E89AA8',        // hand-curated (slight shade of primary)
+          400: '#DD818F',        // hand-curated
+          500: '#E8A0AE',        // ← brand.colors.primary
+          600: '#D17585',        // hand-curated
+          700: '#B45A6A',        // hand-curated
+          800: '#924A58',        // hand-curated
+          900: '#723A45',        // hand-curated
+          950: '#3D1F25'         // hand-curated
         },
-        // Semantic
+        // Semantic — signal colors, NOT brand.
         success: '#16a34a',
         warning: '#f59e0b',
         danger:  '#dc2626',
@@ -72,3 +82,7 @@ const config: Config = {
 };
 
 export default config;
+
+// Re-exported so they're available for ad-hoc derivations from
+// `brand.colors.primary` without being flagged as unused.
+export { tint, shade };

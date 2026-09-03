@@ -19,17 +19,20 @@ export const brand = {
     'Timeout is a calm, focused app for the everyday things worth slowing down for.',
   founded: new Date().getFullYear(),
 
-  // Colors — Timeout defaults. Tweak freely; brand-* stays neutral, accent-* is the timeout color.
+  // Colors — Timeout defaults. Tweak freely; brand-* stays a warm soft grey
+  // neutral, accent-* is the Timeout pink (soft rose). Semantic feedback
+  // colors (success/warning/danger/info) live in tailwind.config.ts and
+  // are intentionally NOT brand-driven.
   colors: {
-    primary: '#5B8DEF',     // calm blue
-    accent: '#7AA1F2',      // lighter (hover)
-    dark: '#1a1f26',       // headings on white
-    text: '#1a1f26',       // body
-    muted: '#64748b',      // subtle text
-    border: '#e5e7eb',     // borders
-    bg: '#ffffff',
-    bgAlt: '#eef4ff',      // soft blue tint for highlights (50)
-    bgMuted: '#f8fafc',    // brand-50 equivalent
+    primary: '#E8A0AE',     // soft rose — CTAs, links, brand accents
+    accent: '#F0B7C1',      // lighter hover / soft fills
+    dark: '#16150F',        // headings on white (warm near-black)
+    text: '#16150F',        // body
+    muted: '#706B62',       // subtle text (warm mid-grey)
+    border: '#E8E5E0',      // borders (warm light grey)
+    bg: '#FFFFFF',          // page background
+    bgAlt: '#FBE9EE',       // soft pink tint for highlight surfaces (accent-50)
+    bgMuted: '#FAF6F4',     // warm off-white (brand-50 equivalent)
   },
 
   // Files (paths are relative to /public so usable in <img src> or CSS url())

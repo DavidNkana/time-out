@@ -94,7 +94,7 @@ async function handleHtml(to: string) {
       <p>Enter your email in the URL: <code>/api/test-email?to=YOUR_EMAIL</code></p>
       <form method="get" action="/api/test-email" style="margin-top:16px">
         <label>Your email: <input name="to" type="email" placeholder="you@example.com" required style="padding:6px;border:1px solid #ccc;border-radius:4px;margin:0 8px"></label>
-        <button type="submit" style="padding:6px 12px;background:#1a1f26;color:#fff;border:none;border-radius:4px;cursor:pointer">Send test email</button>
+        <button type="submit" style="padding:6px 12px;background:#16150F;color:#fff;border:none;border-radius:4px;cursor:pointer">Send test email</button>
       </form>
     `), { status: 400, headers: { 'Content-Type': 'text/html' } });
   }
@@ -131,7 +131,7 @@ async function handleHtml(to: string) {
 
 function htmlPage(title: string, body: string): string {
   return `<!DOCTYPE html><html><head><title>${escape(title)}</title></head>
-<body style="font-family:-apple-system,sans-serif;max-width:560px;margin:32px auto;padding:0 16px;color:#1a1f26;line-height:1.5">
+<body style="font-family:-apple-system,sans-serif;max-width:560px;margin:32px auto;padding:0 16px;color:#16150F;line-height:1.5">
 <h1 style="font-size:18px;margin:0 0 24px">${escape(title)}</h1>
 ${body}
 </body></html>`;

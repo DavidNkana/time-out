@@ -126,7 +126,7 @@ export const PAYMENT_METHODS: PaymentMethod[] = [
     available: 'south_africa_only',
     Logo: (p) => (
       <svg viewBox="0 0 800 471" xmlns="http://www.w3.org/2000/svg" {...p}>
-        <rect width="800" height="471" rx="40" fill="white" stroke="#E5E7EB" strokeWidth="2" />
+        <rect width="800" height="471" rx="40" fill="white" stroke="#E8E5E0" strokeWidth="2" />
         <text
           x="60"
           y="270"

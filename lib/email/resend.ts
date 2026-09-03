@@ -32,13 +32,13 @@ type EmailPayload = {
  */
 function emailTemplate(title: string, body: string) {
   return `
-  <div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:600px;margin:0 auto;color:#1a1f26">
-    <div style="padding:16px 0;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;gap:12px">
+  <div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:600px;margin:0 auto;color:#16150F">
+    <div style="padding:16px 0;border-bottom:1px solid #E8E5E0;display:flex;align-items:center;gap:12px">
       <img src="${brand.logo}" alt="${brand.name}" height="36" style="height:36px;width:auto" />
     </div>
-    <h1 style="font-size:22px;margin:24px 0 12px;color:#1a1f26">${title}</h1>
+    <h1 style="font-size:22px;margin:24px 0 12px;color:#16150F">${title}</h1>
     ${body}
-    <p style="margin-top:32px;font-size:11px;color:#94a3b8;border-top:1px solid #e5e7eb;padding-top:16px">
+    <p style="margin-top:32px;font-size:11px;color:#94a3b8;border-top:1px solid #E8E5E0;padding-top:16px">
       ${brand.copyrightLine.replace('{year}', String(new Date().getFullYear()))}<br />
       ${brand.contact.address.line1}, ${brand.contact.address.line2} — ${brand.contact.email}
     </p>
@@ -148,7 +148,7 @@ export async function sendNewsletterWelcome(params: { to: string }): Promise<voi
     subject: brand.email.newsletterWelcomeSubject,
     html: `
       <div style="max-width:560px;margin:0 auto;font-family:system-ui,sans-serif">
-        <h1 style="color:#1a1f26;font-size:22px;margin:0 0 12px">Welcome to ${brand.name} 👋</h1>
+        <h1 style="color:#16150F;font-size:22px;margin:0 0 12px">Welcome to ${brand.name} 👋</h1>
         <p style="color:#566c7d;line-height:1.6">
           Thanks for subscribing. Use code <strong style="color:#C72E28">${brand.short.toUpperCase()}10</strong> for 10% off your first order.
         </p>

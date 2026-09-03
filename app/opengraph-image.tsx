@@ -11,12 +11,12 @@ export default function OpengraphImage() {
     (
       <div
         style={{
-          background: '#1a1f26',
+          background: brand.colors.dark,
           width: '100%',
           height: '100%',
           display: 'flex',
           flexDirection: 'row',
-          color: '#fff',
+          color: brand.colors.bg,
           fontFamily: 'sans-serif',
         }}
       >
@@ -28,7 +28,7 @@ export default function OpengraphImage() {
             alignItems: 'center',
             justifyContent: 'center',
             background: brand.colors.primary,
-            color: '#fff',
+            color: brand.colors.bg,
             fontSize: 320,
             fontWeight: 900,
           }}
