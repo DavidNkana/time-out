@@ -65,34 +65,34 @@ declare
 
   -- Reusable image array (verified Unsplash photo IDs reused from 010/011)
   _imgs text[] := array[
-    'https://images.unsplash.com/photo-1555041469-a586c62ea9bc?w=800&h=800&fit=crop',  -- 1  pillow
-    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&h=800&fit=crop',  -- 2  bed/throw
-    'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&h=800&fit=crop',  -- 3  plant/vase
-    'https://images.unsplash.com/photo-1505693314120-0d443367891c?w=800&h=800&fit=crop',  -- 4  candle
-    'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=800&fit=crop',  -- 5  plant
-    'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=800&fit=crop',  -- 6  perfume
-    'https://images.unsplash.com/photo-1604709177225-055f99402ea3?w=800&h=800&fit=crop',  -- 7  perfume
-    'https://images.unsplash.com/photo-1603487742131-4160ec999306?w=800&h=800&fit=crop',  -- 8  diffuser
-    'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&h=800&fit=crop',  -- 9  perfume
-    'https://images.unsplash.com/photo-1542219550-37144d6d4f8a?w=800&h=800&fit=crop',  -- 10 perfume
-    'https://images.unsplash.com/photo-1545239351-cefa43af60f3?w=800&h=800&fit=crop',  -- 11 dress
-    'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&h=800&fit=crop',  -- 12 clothes/blouse
-    'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop',  -- 13 shirt/skirt
-    'https://images.unsplash.com/photo-1542272604-787c3835535d?w=800&h=800&fit=crop',  -- 14 jeans/trouser
-    'https://images.unsplash.com/photo-1576566588028-5517d4071bf4?w=800&h=800&fit=crop',  -- 15 tshirt/cardigan
-    'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&h=800&fit=crop',  -- 16 red shoe
-    'https://images.unsplash.com/photo-1542293787938-c9e332b85c9c?w=800&h=800&fit=crop',  -- 17 shoes
-    'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&h=800&fit=crop',  -- 18 bag
-    'https://images.unsplash.com/photo-1564585222527-c2777a5b5d3a?w=800&h=800&fit=crop',  -- 19 perfume
-    'https://images.unsplash.com/photo-1574180566232-aaad1b5de845?w=800&h=800&fit=crop',  -- 20 perfume
-    'https://images.unsplash.com/photo-1572635196237-14b3f28103ed?w=800&h=800&fit=crop',  -- 21 sunglasses/scarf
-    'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=800&fit=crop',  -- 22 lipstick
-    'https://images.unsplash.com/photo-1556909211-d5fd1c5c5d2f?w=800&h=800&fit=crop',  -- 23 perfume
-    'https://images.unsplash.com/photo-1556228720-da4e85a4ba42?w=800&h=800&fit=crop',  -- 24 denim
-    'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&h=800&fit=crop',  -- 25 watch
-    'https://images.unsplash.com/photo-1546863211-acd07f8d3f06?w=800&h=800&fit=crop',  -- 26 watch
-    'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=800&fit=crop',  -- 27 perfume
-    'https://images.unsplash.com/photo-1603006905003-be475563bc59?w=800&h=800&fit=crop'   -- 28 perfume
+    'https://picsum.photos/seed/legacy-1555041469-a586c62ea9bc/800/800',  -- 1  pillow
+    'https://picsum.photos/seed/legacy-1505693416388-ac5ce068fe/800/800',  -- 2  bed/throw
+    'https://picsum.photos/seed/legacy-1513694203232-719a280e02/800/800',  -- 3  plant/vase
+    'https://picsum.photos/seed/legacy-1505693314120-0d44336789/800/800',  -- 4  candle
+    'https://picsum.photos/seed/legacy-1503676260728-1c00da094a/800/800',  -- 5  plant
+    'https://picsum.photos/seed/legacy-1556909114-f6e7ad7d3136/800/800',  -- 6  perfume
+    'https://picsum.photos/seed/legacy-1604709177225-055f99402e/800/800',  -- 7  perfume
+    'https://picsum.photos/seed/legacy-1603487742131-4160ec9993/800/800',  -- 8  diffuser
+    'https://picsum.photos/seed/legacy-1556228720-195a672e8a03/800/800',  -- 9  perfume
+    'https://picsum.photos/seed/legacy-1542219550-37144d6d4f8a/800/800',  -- 10 perfume
+    'https://picsum.photos/seed/legacy-1545239351-cefa43af60f3/800/800',  -- 11 dress
+    'https://picsum.photos/seed/legacy-1539109136881-3be0616acf/800/800',  -- 12 clothes/blouse
+    'https://picsum.photos/seed/legacy-1521572163474-6864f9cf17/800/800',  -- 13 shirt/skirt
+    'https://picsum.photos/seed/legacy-1542272604-787c3835535d/800/800',  -- 14 jeans/trouser
+    'https://picsum.photos/seed/legacy-1576566588028-5517d4071b/800/800',  -- 15 tshirt/cardigan
+    'https://picsum.photos/seed/legacy-1542291026-7eec264c27ff/800/800',  -- 16 red shoe
+    'https://picsum.photos/seed/legacy-1542293787938-c9e332b85c/800/800',  -- 17 shoes
+    'https://picsum.photos/seed/legacy-1553062407-98eeb64c6a62/800/800',  -- 18 bag
+    'https://picsum.photos/seed/legacy-1564585222527-c2777a5b5d/800/800',  -- 19 perfume
+    'https://picsum.photos/seed/legacy-1574180566232-aaad1b5de8/800/800',  -- 20 perfume
+    'https://picsum.photos/seed/legacy-1572635196237-14b3f28103/800/800',  -- 21 sunglasses/scarf
+    'https://picsum.photos/seed/legacy-1552321554-5fefe8c9ef14/800/800',  -- 22 lipstick
+    'https://picsum.photos/seed/legacy-1556909211-d5fd1c5c5d2f/800/800',  -- 23 perfume
+    'https://picsum.photos/seed/legacy-1556228720-da4e85a4ba42/800/800',  -- 24 denim
+    'https://picsum.photos/seed/legacy-1523275335684-37898b6baf/800/800',  -- 25 watch
+    'https://picsum.photos/seed/legacy-1546863211-acd07f8d3f06/800/800',  -- 26 watch
+    'https://picsum.photos/seed/legacy-1558618666-fcd25c85f82e/800/800',  -- 27 perfume
+    'https://picsum.photos/seed/legacy-1603006905003-be475563bc/800/800'   -- 28 perfume
   ];
 begin
 
