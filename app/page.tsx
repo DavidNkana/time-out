@@ -106,8 +106,8 @@ export default async function HomePage() {
             <div className="flex items-start gap-3">
               <div className="flex-shrink-0 h-10 w-10 rounded-full bg-white flex items-center justify-center text-brand-900">📦</div>
               <div>
-                <p className="font-medium text-brand-900">Delivered where you are</p>
-                <p className="text-sm text-brand-600">Configurable shipping — configure in your settings.</p>
+                <p className="font-medium text-brand-900">Made for your day</p>
+                <p className="text-sm text-brand-600">Easy pieces, clear details, no unnecessary fuss.</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
