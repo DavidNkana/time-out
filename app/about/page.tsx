@@ -12,20 +12,20 @@ export const metadata = {
 
 const VALUES = [
   {
-    title: 'Stay focused',
-    body: `Pick the next thing. Take a beat. Move on. ${brand.name} is built around doing less, on purpose.`,
+    title: 'Wear it often',
+    body: 'We look for pieces that earn repeat wears, not one-day outfits that sit at the back of your wardrobe.',
   },
   {
-    title: 'Show up clearly',
-    body: 'No dark patterns, no surprise fees, no popup fatigue. If we need to tell you something, we tell you plainly.',
+    title: 'Choose with intention',
+    body: 'The edit stays considered so finding something good feels more like instinct than endless scrolling.',
   },
   {
-    title: 'Respect your time',
-    body: 'Pages load quickly. Flows are short. Nothing asks for your email twice. Your time is not free.',
+    title: 'Make room for life',
+    body: 'The best clothes are the ones that move with you, from slow mornings to plans that were never in the diary.',
   },
   {
-    title: 'Stay private',
-    body: `${brand.name} stores only what it needs to do the job. You can ask us to delete your account at any time.`,
+    title: 'Keep it honest',
+    body: 'Clear prices, useful details, and support when you need it. No pressure, no theatre.',
   },
 ];
 
@@ -34,13 +34,13 @@ export default function AboutPage() {
     <>
       <Header />
       <PromoBanner
-        imageUrl="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=2000&q=70"
-        alt="Real people working behind the scenes"
-        eyebrow="Behind the project"
-        headline={`What ${brand.name} is, in one sentence.`}
-        subheadline="Read it, or just use the app. Both are valid."
-        ctaHref="/contact"
-        ctaLabel="Get in touch"
+        imageUrl="/products/to-silk-blouse.svg"
+        alt="Silk-blend blouse from the Timeout womenswear edit"
+        eyebrow="Our point of view"
+        headline={`Good clothes. Less noise.`}
+        subheadline="A slower, sharper way to find the pieces you will actually wear."
+        ctaHref="/c/womens-fashion"
+        ctaLabel="Shop the edit"
       />
       <InfoHeader title={`About ${brand.name}`} />
       <main className="mx-auto max-w-3xl px-4 py-10 pb-20 safe-bottom prose prose-sm">
@@ -50,7 +50,7 @@ export default function AboutPage() {
           {brand.about.mission}
         </p>
 
-        <h2 className="mt-10 text-2xl font-semibold text-brand-950">What we believe</h2>
+        <h2 className="mt-10 text-2xl font-semibold text-brand-950">The Timeout way</h2>
         <ul className="mt-4 grid gap-4 sm:grid-cols-2">
           {VALUES.map((v) => (
             <li key={v.title} className="rounded-lg border border-brand-200 bg-white p-5">
@@ -62,7 +62,7 @@ export default function AboutPage() {
 
         <h2 className="mt-10 text-2xl font-semibold text-brand-950">Talk to us</h2>
         <p className="mt-3 text-brand-700 leading-relaxed">
-          Questions, a bug, a missing feature, a partnership pitch?{' '}
+          Need help choosing a size, checking an order, or finding the right piece?{' '}
           <a href="/contact" className="text-brand-900 underline hover:text-brand-700">
             Drop us a message
           </a>{' '}

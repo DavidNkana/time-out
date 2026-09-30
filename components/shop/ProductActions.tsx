@@ -92,7 +92,7 @@ export function ProductActions({ productId, productSlug, productName, basePriceC
 
       {/* Out of stock warning for the selected variant */}
       {selectedVariant && selectedVariant.stock !== null && selectedVariant.stock !== undefined && selectedVariant.stock <= 0 && (
-        <div className="mt-4 rounded-md border border-danger bg-red-50 px-3 py-2 text-sm text-red-800">
+        <div className="mt-4 rounded-xl border border-danger/30 bg-red-50 px-3 py-2 text-sm text-red-800">
           This variant is out of stock. Pick a different option.
         </div>
       )}
@@ -108,10 +108,10 @@ export function ProductActions({ productId, productSlug, productName, basePriceC
         />
       </div>
 
-      <div className="mt-6 text-xs text-brand-500 space-y-1">
-        <p>13 Days Return Policy</p>
-        <p>24/7 Dedicated support</p>
-        <p>100% Secure Payment</p>
+      <div className="mt-6 grid gap-2 border-t border-brand-100 pt-4 text-xs text-brand-600 sm:grid-cols-3 sm:gap-3">
+        <p><span className="font-semibold text-brand-900">13-day returns</span><br />Easy, simple, clear.</p>
+        <p><span className="font-semibold text-brand-900">Need a hand?</span><br />We are here to help.</p>
+        <p><span className="font-semibold text-brand-900">Safe checkout</span><br />Your details stay private.</p>
       </div>
     </>
   );

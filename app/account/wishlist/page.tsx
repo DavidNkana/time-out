@@ -19,9 +19,10 @@ export default function WishlistPage() {
   return (
     <>
       <Header />
-      <main className="mx-auto max-w-4xl px-4 py-10 pb-20 safe-bottom">
-        <h1 className="text-2xl font-semibold text-brand-950">My wishlist</h1>
-        <p className="mt-1 text-sm text-brand-600">
+        <main className="mx-auto max-w-5xl px-4 py-8 pb-20 safe-bottom md:py-12">
+        <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent-700">Your saved edit</p>
+        <h1 className="mt-2 font-display text-4xl font-semibold tracking-[-0.04em] text-brand-950">Pieces to come back to</h1>
+          <p className="mt-3 text-sm text-brand-600">
           {hydrated && items.length > 0
             ? `${items.length} item${items.length === 1 ? '' : 's'} saved`
             : 'Items you saved for later.'}

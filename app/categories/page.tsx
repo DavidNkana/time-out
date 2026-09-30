@@ -13,8 +13,9 @@ export default function CategoriesPage() {
           <span className="mx-1">/</span>
           <span className="text-brand-700">All categories</span>
         </nav>
-        <h1 className="mt-2 text-2xl md:text-3xl font-semibold text-brand-950">All categories</h1>
-        <p className="mt-1 text-sm text-brand-600">Browse everything Timeout has to offer.</p>
+        <p className="mt-4 text-[11px] font-bold uppercase tracking-[0.2em] text-accent-700">Find your next favourite</p>
+        <h1 className="mt-2 font-display text-4xl font-semibold tracking-[-0.04em] text-brand-950">The full edit</h1>
+        <p className="mt-3 max-w-lg text-sm leading-6 text-brand-600">From easy layers to the details that make a room feel like yours, start wherever your mood takes you.</p>
         <div className="mt-6">
           <CategoryGrid />
         </div>

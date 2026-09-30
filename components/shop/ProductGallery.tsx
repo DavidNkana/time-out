@@ -61,7 +61,7 @@ export function ProductGallery({ images }: ProductGalleryProps) {
       {/* Main image with hover zoom + click-to-lightbox */}
       <div
         ref={mainRef}
-        className="group relative aspect-square overflow-clip rounded-lg bg-brand-100 md:cursor-zoom-in"
+        className="group relative aspect-square overflow-clip rounded-[1.5rem] bg-brand-100 md:cursor-zoom-in"
         onMouseMove={onMainMove}
         onMouseLeave={() => setZoom(null)}
         onTouchStart={() => setZoom(null)}

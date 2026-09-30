@@ -14,9 +14,9 @@ export const brand = {
   name: 'Timeout',
   short: 'Timeout',
   legalName: 'Timeout',
-  tagline: 'Take a beat. Then go.',
+  tagline: 'Wear the moment.',
   shortDescription:
-    'Timeout is a calm, focused app for the everyday things worth slowing down for.',
+    'A considered edit of womenswear, accessories, and everyday pieces for the way you move.',
   founded: new Date().getFullYear(),
 
   // Colors — Timeout defaults. Tweak freely; brand-* stays a warm soft grey
@@ -88,22 +88,22 @@ export const brand = {
   copyrightLine: '© {year} Timeout. All rights reserved.',
   whatsappStoreLink: '',
 
-  // Home hero copy — placeholder; replace when Timeout's voice lands.
+  // Home hero copy.
   home: {
-    eyebrow: '',
-    headline: 'Welcome to Timeout',
-    subheadline: '',
-    primaryCta: { href: '/new', label: 'See what is new' },
-    secondaryCta: { href: '/contact', label: 'Get in touch' },
+    eyebrow: 'The new edit',
+    headline: 'Dress for the life you want.',
+    subheadline: 'Quiet luxury, easy layers, and pieces that move with your day.',
+    primaryCta: { href: '/c/womens-fashion', label: 'Explore womenswear' },
+    secondaryCta: { href: '/new', label: 'See what is new' },
   },
 
   // About page copy — placeholder
   about: {
     intro:
-      'Timeout is a fresh project — built calmly, on purpose. Replace this copy once the story is written.',
+      'Timeout is a considered edit for getting dressed with less noise and more instinct.',
     founded: new Date().getFullYear(),
     mission:
-      'Replace this mission statement with what Timeout actually stands for.',
+      'We look for the pieces that earn their place: easy to wear, easy to style, and made for real days.',
   },
 } as const;
 

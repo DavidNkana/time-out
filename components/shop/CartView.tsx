@@ -14,7 +14,7 @@ export function CartView() {
   const subtotal = useCart((s) => s.subtotalCents());
 
   if (items.length === 0) {
-    return <EmptyState title="Your cart is empty" description="Add some products to get started." action={{ label: 'Start shopping', href: '/' }} />;
+    return <EmptyState title="Your bag is waiting" description="Start with the new edit and keep the pieces that feel like you." action={{ label: 'Explore the edit', href: '/' }} />;
   }
 
   return (

@@ -117,8 +117,8 @@ export default async function ProductPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
       />
       <Header />
-      <main className="mx-auto max-w-6xl px-4 py-6 pb-20 safe-bottom overflow-x-clip max-w-full">
-        <nav className="text-xs text-brand-500">
+      <main className="mx-auto max-w-6xl overflow-x-clip px-4 py-6 pb-20 safe-bottom">
+        <nav className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-400">
           <Link href="/" className="hover:underline">Home</Link>
           {product.category && (
             <>
@@ -130,33 +130,43 @@ export default async function ProductPage({ params }: Props) {
           <span className="text-brand-700">{product.name}</span>
         </nav>
 
-        <div className="mt-4 grid gap-6 md:grid-cols-2 min-w-0">
+        <div className="mt-5 grid gap-8 md:grid-cols-[minmax(0,1.1fr)_minmax(360px,0.9fr)] md:items-start md:gap-14">
           <div className="min-w-0">
             <ProductGallery images={product.images} />
           </div>
 
-          <div className="min-w-0">
-            <h1 className="text-2xl md:text-3xl font-semibold text-brand-950">{product.name}</h1>
+          <div className="min-w-0 md:sticky md:top-28">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent-700">Timeout / considered essentials</p>
+            <h1 className="mt-3 font-display text-3xl font-semibold leading-tight tracking-[-0.03em] text-brand-950 md:text-5xl">{product.name}</h1>
 
             {product.description && (
-              <p className="mt-3 text-sm text-brand-700 whitespace-pre-line break-words">{product.description}</p>
+              <p className="mt-4 max-w-lg text-sm leading-6 text-brand-600 whitespace-pre-line break-words">{product.description}</p>
             )}
 
-            <ProductActions
-              productId={product.id}
-              productSlug={product.slug}
-              productName={product.name}
-              basePriceCents={product.base_price_cents}
-              compareAtCents={product.compare_at_cents}
-              variants={product.variants}
-              images={product.images}
-            />
+            <div className="mt-5 flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-wider text-brand-600">
+              <span className="rounded-full bg-accent-50 px-3 py-2">Easy to style</span>
+              <span className="rounded-full bg-brand-50 px-3 py-2">Made for repeat wear</span>
+              <span className="rounded-full bg-brand-50 px-3 py-2">Secure checkout</span>
+            </div>
+
+            <div className="mt-7 rounded-[1.5rem] border border-brand-200 bg-white p-5 shadow-[0_12px_40px_rgba(22,21,15,0.06)] md:p-6">
+              <ProductActions
+                productId={product.id}
+                productSlug={product.slug}
+                productName={product.name}
+                basePriceCents={product.base_price_cents}
+                compareAtCents={product.compare_at_cents}
+                variants={product.variants}
+                images={product.images}
+              />
+            </div>
           </div>
         </div>
 
         {related.length > 0 && (
-          <section className="mt-12 max-w-full">
-            <h2 className="text-lg font-semibold text-brand-950">You may also like</h2>
+          <section className="mt-16 max-w-full border-t border-brand-200 pt-10">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent-700">Complete the look</p>
+            <h2 className="mt-2 font-display text-2xl font-semibold text-brand-950">Pairs well with</h2>
             <div className="mt-4">
               <ProductGrid products={related} />
             </div>

@@ -77,8 +77,9 @@ export default function SettingsPage() {
     <>
       <Header />
       <main className="mx-auto max-w-md px-4 py-10 pb-20 safe-bottom">
-        <h1 className="text-2xl font-semibold text-brand-950">Settings</h1>
-        <p className="mt-1 text-sm text-brand-600">Update your profile information.</p>
+        <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent-700">Your details</p>
+        <h1 className="mt-2 font-display text-4xl font-semibold tracking-[-0.04em] text-brand-950">Profile & preferences</h1>
+        <p className="mt-3 text-sm text-brand-600">Keep your Timeout profile current so every order feels effortless.</p>
 
         <form onSubmit={onSubmit} className="mt-6 space-y-4">
           <Input
@@ -86,7 +87,7 @@ export default function SettingsPage() {
             placeholder="David"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
-            helperText="This will show as your greeting on the account page."
+            helperText="This is how we will greet you in your private Timeout space."
           />
           <div className="flex gap-2">
             <Button type="submit" loading={loading} size="lg">Save</Button>

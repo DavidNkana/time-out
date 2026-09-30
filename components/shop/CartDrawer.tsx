@@ -23,10 +23,10 @@ export function CartDrawer() {
   }, []);
 
   return (
-    <Drawer open={open} onClose={() => setOpen(false)} title={`Your cart (${items.length})`}>
+      <Drawer open={open} onClose={() => setOpen(false)} title={`Your bag (${items.length})`}>
       {items.length === 0 ? (
         <div className="px-6 py-10 text-center text-sm text-brand-600">
-          Your cart is empty.
+          Your bag is empty. Start with something you will wear often.
           <div className="mt-6">
             <Button onClick={() => setOpen(false)} variant="secondary" fullWidth>
               Continue shopping

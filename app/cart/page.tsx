@@ -7,8 +7,10 @@ export default function CartPage() {
     <>
       <Header />
       <main className="mx-auto max-w-3xl px-4 py-10 pb-20 safe-bottom">
-        <h1 className="text-2xl font-semibold text-brand-950">Your cart</h1>
-        <div className="mt-6">
+        <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent-700">Nearly yours</p>
+        <h1 className="mt-2 font-display text-4xl font-semibold tracking-[-0.04em] text-brand-950">Your bag</h1>
+        <p className="mt-3 text-sm text-brand-600">A few good choices, ready when you are.</p>
+        <div className="mt-7">
           <CartView />
         </div>
       </main>

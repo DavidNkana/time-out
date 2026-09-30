@@ -75,7 +75,10 @@ export async function ReviewSection({ productId }: { productId: string }) {
   return (
     <section className="mt-12 border-t border-brand-200 pt-8">
       <header className="flex items-center justify-between gap-4 flex-wrap">
-        <h2 className="text-xl font-semibold text-brand-950">Customer reviews</h2>
+        <div>
+          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent-700">From the community</p>
+          <h2 className="mt-1 font-display text-2xl font-semibold text-brand-950">How it wears</h2>
+        </div>
         {count > 0 && (
           <div className="flex items-center gap-3">
             <StarRating value={avg} size="lg" />

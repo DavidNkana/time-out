@@ -19,8 +19,9 @@ export default async function CheckoutPage() {
     <>
       <Header />
       <main className="mx-auto max-w-4xl px-4 py-10 pb-20 safe-bottom">
-        <h1 className="text-2xl font-semibold text-brand-950">Checkout</h1>
-        <p className="mt-1 text-sm text-brand-600">Almost there. Just a few details.</p>
+        <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent-700">The last step</p>
+        <h1 className="mt-2 font-display text-4xl font-semibold tracking-[-0.04em] text-brand-950">Make it yours</h1>
+        <p className="mt-3 text-sm text-brand-600">Confirm your details and we will take care of the rest.</p>
 
         <div className="mt-6">
           <CheckoutForm user={user} savedAddresses={savedAddresses} />
