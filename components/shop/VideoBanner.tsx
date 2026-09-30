@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+import { trackEvent } from '@/lib/utils/analytics';
 
 type VideoBannerProps = {
   /** Direct .mp4 URL (Pexels, Mixkit, Coverr all allow commercial use with no attribution). */
@@ -47,7 +48,15 @@ export function VideoBanner({
   const videoRef = useRef<HTMLVideoElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [needsTap, setNeedsTap] = useState(false);
-  const [visible, setVisible] = useState(true);
+  const [reducedMotion, setReducedMotion] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReducedMotion(media.matches);
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, []);
 
   // Pause when offscreen, play when visible.
   useEffect(() => {
@@ -57,8 +66,7 @@ export function VideoBanner({
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          setVisible(entry.isIntersecting);
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting && reducedMotion === false) {
             vid.play().catch(() => {
               // Autoplay blocked — let user tap the poster overlay.
               setNeedsTap(true);
@@ -72,7 +80,7 @@ export function VideoBanner({
     );
     io.observe(wrap);
     return () => io.disconnect();
-  }, []);
+  }, [reducedMotion]);
 
   function handleTapToPlay() {
     const vid = videoRef.current;
@@ -96,9 +104,9 @@ export function VideoBanner({
         <video
           ref={videoRef}
           className="absolute inset-0 h-full w-full object-cover"
-          autoPlay
+          autoPlay={reducedMotion === false}
           muted
-          loop
+          loop={reducedMotion === false}
           playsInline
           preload="metadata"
           poster={posterUrl}
@@ -128,19 +136,19 @@ export function VideoBanner({
 
         {/* Tap-to-play overlay if autoplay is blocked (mobile data-saver, low-power mode). */}
         {needsTap && (
-          <button
-            type="button"
-            onClick={handleTapToPlay}
-            className="absolute inset-0 z-20 flex items-center justify-center bg-black/30 text-white"
-            aria-label="Play background video"
-          >
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-semibold backdrop-blur-sm ring-1 ring-white/30">
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex justify-center pb-20">
+            <button
+              type="button"
+              onClick={handleTapToPlay}
+              className="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-black/45 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-sm ring-1 ring-white/30"
+              aria-label="Play background video"
+            >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M8 5v14l11-7z" />
               </svg>
               Tap to play
-            </span>
-          </button>
+            </button>
+          </div>
         )}
 
         {/* Copy */}
@@ -162,6 +170,7 @@ export function VideoBanner({
             <div className="mt-2">
               <Link
                 href={ctaHref}
+                onClick={() => trackEvent('runway_cta_click', { href: ctaHref })}
                 className="inline-flex items-center gap-2 rounded-md bg-white px-6 py-3 text-sm font-semibold text-brand-950 shadow-md transition-colors hover:bg-brand-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2"
               >
                 {ctaLabel}

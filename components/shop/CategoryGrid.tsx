@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { getCategories } from '@/lib/catalog/queries';
 import { CategoryCardImage } from './CategoryCardImage';
+import { TrackedLink } from '@/components/ui/TrackedLink';
 
 type CategoryCard = {
   slug: string;
@@ -19,25 +19,30 @@ export async function CategoryGrid() {
   }));
 
   return (
-    <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
-      {cards.map((c) => (
-        <CategoryCardLink key={c.slug} category={c} />
-      ))}
+    <div className="relative mt-6">
+      <div className="no-scrollbar flex snap-x gap-3 overflow-x-auto pb-2 pr-8">
+        {cards.map((c) => (
+          <CategoryCardLink key={c.slug} category={c} />
+        ))}
+      </div>
     </div>
   );
 }
 
 function CategoryCardLink({ category }: { category: CategoryCard }) {
   return (
-    <Link
+    <TrackedLink
       href={`/c/${category.slug}`}
-      className="group relative aspect-square overflow-hidden rounded-lg bg-brand-100"
+      event="category_click"
+      eventProperties={{ category: category.slug }}
+      className="group w-[118px] shrink-0 snap-start"
     >
-      <CategoryCardImage src={category.imageUrl} alt={category.name} />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-      <span className="absolute bottom-2 left-2 right-2 text-sm font-medium text-white drop-shadow-sm">
+      <div className="relative aspect-square overflow-hidden rounded-[1.35rem] border border-brand-200 bg-brand-100 shadow-sm transition-transform duration-200 group-hover:-translate-y-1">
+        <CategoryCardImage src={category.imageUrl} alt={category.name} />
+      </div>
+      <span className="mt-2 block truncate text-center text-xs font-semibold text-brand-800">
         {category.name}
       </span>
-    </Link>
+    </TrackedLink>
   );
 }

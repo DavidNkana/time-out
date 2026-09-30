@@ -17,7 +17,12 @@ export async function getCategories(): Promise<Category[]> {
     .select('*')
     .eq('is_active', true)
     .order('sort_order', { ascending: true })) as any;
-  if (error) throw error;
+  // A catalog read should not take down the storefront when the database is
+  // temporarily unavailable or a deployment is ahead of its migrations.
+  if (error) {
+    console.error('[getCategories]', error.message);
+    return [];
+  }
   return data ?? [];
 }
 

@@ -83,7 +83,7 @@ export function CookieConsent() {
     <div
       role="dialog"
       aria-label="Cookie preferences"
-      className="fixed inset-x-0 bottom-0 z-50 mx-auto max-w-3xl p-3 sm:p-4"
+      className="fixed inset-x-0 bottom-0 z-[60] mx-auto max-w-3xl p-3 sm:p-4"
     >
       <div className="rounded-xl border border-brand-300 bg-white shadow-2xl">
         {!showCustom ? (

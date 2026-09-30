@@ -5,6 +5,7 @@ import { StorefrontProviders } from '@/components/shop/StorefrontProviders';
 import { NavigationLoader } from '@/components/layout/NavigationLoader';
 import { AppSplash } from '@/components/app/AppSplash';
 import { OfflineGate } from '@/components/app/OfflineGate';
+import { BottomNav } from '@/components/layout/BottomNav';
 import { brand } from '@/lib/brand';
 
 const SITE_URL = brand.siteUrl;
@@ -98,6 +99,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <NavigationLoader />
         </Suspense>
         {children}
+        <BottomNav />
       </body>
     </html>
   );
