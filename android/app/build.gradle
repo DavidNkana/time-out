@@ -5,7 +5,7 @@ android {
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "za.co.timeout.homeandstyle"
-        minSdkVersion 23  // Android 6.0+ (matches our webview baseline)
+        minSdkVersion 24  // Android 7.0+ (required by Google Play automatic protection)
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "0.1.0"
