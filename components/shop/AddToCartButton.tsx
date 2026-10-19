@@ -89,9 +89,9 @@ export function AddToCartButton({ productId, productSlug, productName, imageUrl,
         </select>
       )}
 
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
         <QuantityStepper value={quantity} min={1} max={Math.max(1, stockCap)} onChange={setQuantity} />
-        <Button ref={btnRef} onClick={handleAdd} disabled={isOutOfStock} fullWidth size={size} variant="primary">
+        <Button ref={btnRef} onClick={handleAdd} disabled={isOutOfStock} fullWidth size={size} variant="primary" className="min-w-0 sm:flex-1">
           {isOutOfStock ? 'Out of stock' : 'Add to cart'}
         </Button>
       </div>
