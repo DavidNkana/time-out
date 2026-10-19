@@ -59,7 +59,8 @@ export default async function OrderDetailPage({ params }: Props) {
         <ReturnSection
           orderId={order.id}
           orderStatus={order.status}
-          orderCreatedAt={order.created_at}
+          orderDeliveredAt={order.delivered_at}
+          orderShippedAt={order.shipped_at}
           existingReturn={ret ?? null}
         />
 
