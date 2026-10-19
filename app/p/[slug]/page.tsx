@@ -117,8 +117,8 @@ export default async function ProductPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
       />
       <Header />
-      <main className="mx-auto max-w-6xl overflow-x-clip px-4 py-6 pb-20 safe-bottom">
-        <nav className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-400">
+      <main className="mx-auto max-w-6xl max-w-full overflow-x-clip px-4 py-6 pb-20 safe-bottom">
+        <nav className="min-w-0 overflow-hidden text-ellipsis whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-400">
           <Link href="/" className="hover:underline">Home</Link>
           {product.category && (
             <>
@@ -130,7 +130,7 @@ export default async function ProductPage({ params }: Props) {
           <span className="text-brand-700">{product.name}</span>
         </nav>
 
-        <div className="mt-5 grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(300px,0.9fr)] lg:items-start lg:gap-14">
+        <div className="mt-5 grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(300px,0.9fr)] lg:items-start lg:gap-14">
           <div className="min-w-0">
             <ProductGallery images={product.images} />
           </div>
