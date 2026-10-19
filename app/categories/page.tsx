@@ -17,7 +17,7 @@ export default function CategoriesPage() {
         <h1 className="mt-2 font-display text-4xl font-semibold tracking-[-0.04em] text-brand-950">The full edit</h1>
         <p className="mt-3 max-w-lg text-sm leading-6 text-brand-600">From easy layers to the details that make a room feel like yours, start wherever your mood takes you.</p>
         <div className="mt-6">
-          <CategoryGrid />
+          <CategoryGrid layout="grid" />
         </div>
       </main>
       <Footer />
