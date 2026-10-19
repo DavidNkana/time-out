@@ -102,8 +102,8 @@ export function EditProductForm({ categories, product, existingImages, existingV
       return;
     }
 
-    if (images.some((img) => img.uploading)) {
-      showToast('Wait for images to finish uploading', 'warning');
+    if (images.some((img) => img.uploading || img.error)) {
+      showToast('Finish or remove failed image uploads before saving', 'warning');
       setSaving(false);
       return;
     }

@@ -71,8 +71,8 @@ export function NewsletterSignup({ variant = 'inline' }: { variant?: Variant }) 
 
   // inline (footer)
   return (
-    <form onSubmit={submit} className="flex flex-col gap-2 sm:flex-row sm:items-center">
-      <label htmlFor="ns-email" className="text-sm text-brand-700">
+    <form onSubmit={submit} className="flex min-w-0 flex-col gap-2 sm:flex-row sm:items-center">
+      <label htmlFor="ns-email" className="shrink-0 whitespace-nowrap text-sm text-brand-700">
         Newsletter:
       </label>
       <input
@@ -82,7 +82,7 @@ export function NewsletterSignup({ variant = 'inline' }: { variant?: Variant }) 
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="you@example.com"
-        className="flex-1 rounded-md border border-brand-300 bg-white px-3 py-1.5 text-sm focus:border-brand-700 focus:outline-none focus:ring-1 focus:ring-brand-700"
+        className="min-w-0 flex-1 rounded-md border border-brand-300 bg-white px-3 py-1.5 text-sm focus:border-brand-700 focus:outline-none focus:ring-1 focus:ring-brand-700"
       />
       <Button type="submit" loading={submitting} size="sm">
         Subscribe

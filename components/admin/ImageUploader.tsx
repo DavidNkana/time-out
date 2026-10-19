@@ -67,7 +67,7 @@ export function ImageUploader({ images, onChange, max = 10 }: Props) {
       onChange((prev) => prev.map((img) => img.id === tempId ? { ...img, url: publicUrl, uploading: false } : img));
     } catch (err: any) {
       URL.revokeObjectURL(previewUrl);
-      onChange((prev) => prev.map((img) => img.id === tempId ? { ...img, error: err?.message ?? 'upload failed' } : img));
+      onChange((prev) => prev.map((img) => img.id === tempId ? { ...img, uploading: false, error: err?.message ?? 'upload failed' } : img));
     }
   }, [images, onChange, showToast]);
 
@@ -117,7 +117,8 @@ export function ImageUploader({ images, onChange, max = 10 }: Props) {
         URL.revokeObjectURL(placeholders[i].url);
         onChange((prev) => prev.map((img) => img.id === tempId ? { ...img, url: publicUrl, uploading: false } : img));
       } catch (err: any) {
-        onChange((prev) => prev.map((img) => img.id === tempId ? { ...img, error: err?.message ?? 'upload failed' } : img));
+        URL.revokeObjectURL(placeholders[i].url);
+        onChange((prev) => prev.map((img) => img.id === tempId ? { ...img, uploading: false, error: err?.message ?? 'upload failed' } : img));
       }
     }
   }

@@ -67,8 +67,8 @@ export function NewProductForm({ categories }: Props) {
     }
 
     // Wait for any pending image uploads
-    if (images.some((img) => img.uploading)) {
-      showToast('Wait for images to finish uploading', 'warning');
+    if (images.some((img) => img.uploading || img.error)) {
+      showToast('Finish or remove failed image uploads before saving', 'warning');
       setSaving(false);
       return;
     }
