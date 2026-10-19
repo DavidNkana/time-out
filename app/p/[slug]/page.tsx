@@ -130,12 +130,12 @@ export default async function ProductPage({ params }: Props) {
           <span className="text-brand-700">{product.name}</span>
         </nav>
 
-        <div className="mt-5 grid gap-8 md:grid-cols-[minmax(0,1.1fr)_minmax(360px,0.9fr)] md:items-start md:gap-14">
+        <div className="mt-5 grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(300px,0.9fr)] lg:items-start lg:gap-14">
           <div className="min-w-0">
             <ProductGallery images={product.images} />
           </div>
 
-          <div className="min-w-0 md:sticky md:top-28">
+          <div className="min-w-0 lg:sticky lg:top-28">
             <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent-700">Timeout / considered essentials</p>
             <h1 className="mt-3 font-display text-3xl font-semibold leading-tight tracking-[-0.03em] text-brand-950 md:text-5xl">{product.name}</h1>
 

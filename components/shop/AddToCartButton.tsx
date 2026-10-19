@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useCart } from '@/lib/cart/store';
 import { Button } from '@/components/ui/Button';
 import { QuantityStepper } from './QuantityStepper';
@@ -25,6 +25,11 @@ export function AddToCartButton({ productId, productSlug, productName, imageUrl,
   const showToast = useToast((s) => s.show);
   const { fly } = useCartFly();
   const btnRef = useRef<HTMLButtonElement>(null);
+  const firstVariantId = variants[0]?.id ?? '';
+
+  useEffect(() => {
+    setSelectedId(firstVariantId);
+  }, [firstVariantId]);
 
   const selected = variants.find((v) => v.id === selectedId);
   const priceCents = selected?.price_cents ?? basePriceCents;

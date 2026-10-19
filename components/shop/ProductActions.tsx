@@ -63,7 +63,7 @@ export function ProductActions({ productId, productSlug, productName, basePriceC
         </p>
       )}
 
-      {variants.length > 0 && optionKeys.length > 1 && (
+       {variants.length > 0 && optionKeys.length > 0 && (
         <div className="mt-6">
           <VariantPicker
             variants={variants}
@@ -109,7 +109,7 @@ export function ProductActions({ productId, productSlug, productName, basePriceC
       </div>
 
       <div className="mt-6 grid gap-2 border-t border-brand-100 pt-4 text-xs text-brand-600 sm:grid-cols-3 sm:gap-3">
-        <p><span className="font-semibold text-brand-900">13-day returns</span><br />Easy, simple, clear.</p>
+        <p><span className="font-semibold text-brand-900">7-day returns</span><br />Easy, simple, clear.</p>
         <p><span className="font-semibold text-brand-900">Need a hand?</span><br />We are here to help.</p>
         <p><span className="font-semibold text-brand-900">Safe checkout</span><br />Your details stay private.</p>
       </div>
