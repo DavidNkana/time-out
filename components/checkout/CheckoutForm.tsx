@@ -22,6 +22,9 @@ type Props = {
 
 type Step = 'email' | 'address' | 'shipping' | 'payment';
 
+// Keep the checkout preview available while gateway integrations are being completed.
+const PAYMENT_INTEGRATION_READY = false;
+
 export function CheckoutForm({ user, savedAddresses }: Props) {
   const router = useRouter();
   const items = useCart((s) => s.items);
@@ -39,9 +42,7 @@ export function CheckoutForm({ user, savedAddresses }: Props) {
   const [province, setProvince] = useState('Gauteng');
   const [postalCode, setPostalCode] = useState('');
   const [shippingMethod, setShippingMethod] = useState<ShippingMethod>('tcg_door');
-  const [paymentMethod, setPaymentMethod] = useState<
-    'payfast' | 'yoco' | 'ozow' | 'apple_pay' | 'paypal'
-  >('payfast');
+  const [paymentMethod, setPaymentMethod] = useState<'payfast' | 'payjustnow'>('payfast');
   const [coupon, setCoupon] = useState<AppliedCoupon | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
@@ -51,6 +52,10 @@ export function CheckoutForm({ user, savedAddresses }: Props) {
   const totalCents = Math.max(0, subtotal + shippingCents - discountCents);
 
   async function placeOrder() {
+    if (!PAYMENT_INTEGRATION_READY) {
+      showToast('Payment integration is coming soon.', 'info');
+      return;
+    }
     if (items.length === 0) {
       showToast('Your cart is empty', 'warning');
       return;
@@ -224,11 +229,8 @@ export function CheckoutForm({ user, savedAddresses }: Props) {
 
             <div className="space-y-2">
               {[
-                { id: 'payfast', label: 'PayFast', desc: 'Card, Instant EFT, SnapScan, Zapper, normal EFT' },
-                { id: 'yoco', label: 'Yoco', desc: 'Credit/debit card' },
-                { id: 'ozow', label: 'Ozow', desc: 'Instant EFT from your bank' },
-                { id: 'apple_pay', label: 'Apple Pay', desc: 'Touch ID / Face ID on your Apple device', planned: true },
-                { id: 'paypal', label: 'PayPal', desc: 'Pay with your PayPal balance or linked card', planned: true }
+                { id: 'payfast', label: 'Payfast', desc: 'Cards and instant EFT', planned: true },
+                { id: 'payjustnow', label: 'PayJustNow', desc: 'Split your purchase into instalments', planned: true }
               ].map((g) => (
                 <label
                   key={g.id}
@@ -251,7 +253,7 @@ export function CheckoutForm({ user, savedAddresses }: Props) {
                     type="radio"
                     name="payment"
                     value={g.id}
-                    checked={paymentMethod === g.id as any}
+                     checked={paymentMethod === g.id as any}
                     onChange={() => !(g as any).planned && setPaymentMethod(g.id as any)}
                     disabled={(g as any).planned}
                     className="sr-only"
@@ -261,8 +263,8 @@ export function CheckoutForm({ user, savedAddresses }: Props) {
             </div>
             <div className="flex gap-2">
               <Button onClick={() => setStep('shipping')} variant="secondary">Back</Button>
-              <Button onClick={placeOrder} loading={submitting} fullWidth size="lg">
-                Place order · {formatRand(totalCents)}
+              <Button onClick={placeOrder} loading={submitting} disabled={!PAYMENT_INTEGRATION_READY} fullWidth size="lg">
+                {PAYMENT_INTEGRATION_READY ? `Place order · ${formatRand(totalCents)}` : 'Payments coming soon'}
               </Button>
             </div>
           </div>

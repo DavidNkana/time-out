@@ -45,6 +45,29 @@ export function Footer() {
   return (
     <footer className="mt-16 md:mt-24 border-t border-brand-200 bg-brand-50">
       <div className="mx-auto max-w-6xl px-4 py-10 md:py-12">
+        <div className="md:hidden">
+          <div className="flex items-center justify-between gap-4">
+            <Link href="/" className="inline-flex items-center gap-2">
+              <img src={brand.logo} alt={`${brand.name} logo`} className="h-8 w-auto" />
+            </Link>
+            <Link href="/contact" className="inline-flex min-h-11 items-center rounded-full bg-brand-950 px-4 py-2 text-xs font-bold text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500">
+              Need help?
+            </Link>
+          </div>
+          <p className="mt-4 max-w-xs text-sm leading-6 text-brand-600">{brand.shortDescription}</p>
+          <div className="mt-5 rounded-2xl border border-brand-200 bg-white p-4">
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-500">Payment options planned</p>
+            <PaymentMethodsStrip size="sm" className="mt-3" />
+            <p className="mt-2 text-xs text-brand-500">Payfast and PayJustNow integrations are coming soon.</p>
+          </div>
+          <div className="mt-5 flex items-center justify-between border-t border-brand-200 pt-4 text-xs text-brand-500">
+            <Link href="/legal/privacy" className="inline-flex min-h-11 items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500">Privacy</Link>
+            <Link href="/legal/returns" className="inline-flex min-h-11 items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500">Returns</Link>
+            <Link href="/legal/terms" className="inline-flex min-h-11 items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500">Terms</Link>
+          </div>
+        </div>
+
+        <div className="hidden md:block">
         {/* Top row: brand + columns */}
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4 md:gap-10">
           {/* Brand + contact + socials */}
@@ -159,9 +182,10 @@ export function Footer() {
         {/* Payment methods trust strip */}
         <div className="mt-8 border-t border-brand-200 pt-6">
           <p className="text-xs font-semibold uppercase tracking-wider text-brand-500 mb-3">
-            Accepted payment methods
+            Payment options planned
           </p>
           <PaymentMethodsStrip size="sm" showLabel />
+        </div>
         </div>
       </div>
 

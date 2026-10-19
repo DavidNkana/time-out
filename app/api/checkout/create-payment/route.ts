@@ -13,6 +13,15 @@ export async function POST(req: Request) {
     if (!cartId || !email || !shippingMethod || !paymentMethod || !shippingAddress?.line1) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
+    if (shippingMethod !== 'tcg_door') {
+      return NextResponse.json({ error: 'The Courier Guy is the only available delivery method.' }, { status: 400 });
+    }
+    if (paymentMethod !== 'payfast' && paymentMethod !== 'payjustnow') {
+      return NextResponse.json({ error: 'Unsupported payment method.' }, { status: 400 });
+    }
+    if (!isMockMode()) {
+      return NextResponse.json({ error: 'Payment integration is not configured yet.' }, { status: 503 });
+    }
 
     const sessionUser = await getCurrentUser();
     const resolvedUserId = userId || sessionUser?.id;

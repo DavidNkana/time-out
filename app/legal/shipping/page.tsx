@@ -7,12 +7,12 @@ export default function ShippingPage() {
     <>
       <InfoHeader title="Shipping Policy" />
       <main className="mx-auto max-w-3xl px-4 py-10 pb-20 safe-bottom prose prose-sm prose-headings:text-brand-950 prose-a:text-accent-700">
-        <p className="text-sm text-brand-500">Scaffolding copy — replace before publishing.</p>
+        <p className="text-sm text-brand-500">Delivery information for Timeout orders.</p>
 
         <h1>Shipping Policy</h1>
 
         <h2>Delivery options</h2>
-        <p>Delivery options available to you are shown at checkout. They depend on your address, the items in your cart, and the couriers Timeout is currently integrating with.</p>
+        <p>Timeout currently uses The Courier Guy for door delivery. The delivery fee and estimated arrival window are shown at checkout before you place your order.</p>
 
         <h2>Delivery times</h2>
         <p>All ETAs are estimates. Public holidays, weather, and courier issues may cause delays. We&rsquo;ll keep you informed if your order is delayed.</p>

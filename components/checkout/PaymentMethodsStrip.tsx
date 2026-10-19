@@ -161,6 +161,18 @@ export const PAYMENT_METHODS: PaymentMethod[] = [
     ),
   },
   {
+    id: 'payjustnow',
+    name: 'PayJustNow',
+    alt: 'PayJustNow — planned payment option',
+    available: 'planned',
+    Logo: (p) => (
+      <svg viewBox="0 0 420 120" xmlns="http://www.w3.org/2000/svg" {...p}>
+        <rect width="420" height="120" rx="18" fill="#16150F" />
+        <text x="210" y="76" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="48" fill="#F0B7C1">PayJustNow</text>
+      </svg>
+    ),
+  },
+  {
     id: 'paypal',
     name: 'PayPal',
     alt: 'PayPal',
@@ -199,7 +211,7 @@ export function PaymentMethodsStrip({
 
   return (
     <div className={`flex flex-wrap items-center ${gap} ${className}`}>
-      {PAYMENT_METHODS.map((m) => (
+      {PAYMENT_METHODS.filter((m) => m.id === 'payfast' || m.id === 'payjustnow').map((m) => (
         <div
           key={m.id}
           title={m.alt}
@@ -216,7 +228,7 @@ export function PaymentMethodsStrip({
         </div>
       ))}
       {showLabel && (
-        <span className="ml-2 text-xs text-brand-500">Secure checkout · 256-bit SSL</span>
+        <span className="ml-2 text-xs text-brand-500">Payfast + PayJustNow · coming soon</span>
       )}
     </div>
   );
