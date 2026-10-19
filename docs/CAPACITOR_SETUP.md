@@ -9,7 +9,7 @@ The approach: the native app is a small **webview wrapper** that loads the deplo
 ## Prerequisites (already done ✅)
 
 - [x] Capacitor packages installed (`@capacitor/core`, `@capacitor/ios`, `@capacitor/android`, `@capacitor/cli`)
-- [x] `capacitor.config.ts` configured with app IDs (`com.timeout.app`) and live server URL
+- [x] `capacitor.config.ts` configured with app IDs (`za.co.timeout.homeandstyle`) and live server URL
 - [x] `ios/` and `android/` folders committed
 
 ## Prerequisites (still needed ⚠️)
@@ -48,7 +48,7 @@ This copies the latest web assets (icons, splash) into both native projects.
 2. Fill in:
    - **Name**: Timeout
    - **Primary language**: English
-   - **Bundle ID**: `com.timeout.app`
+   - **Bundle ID**: `za.co.timeout.homeandstyle`
    - **SKU**: TIMEOUTAPP (any unique string)
 3. Create the app record
 
@@ -60,7 +60,7 @@ open ios/App/App.xcworkspace
 
 In Xcode:
 1. Select the `App` target → Signing & Capabilities → enable "Automatically manage signing" → select your Apple Developer team
-2. Set **Bundle Identifier**: `com.timeout.app`
+2. Set **Bundle Identifier**: `za.co.timeout.homeandstyle`
 3. Set **Display Name**: `Timeout`
 4. Add capabilities if needed (Push Notifications for the push plugin)
 

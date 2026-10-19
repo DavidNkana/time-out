@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "com.timeout.app"
+    namespace "za.co.timeout.homeandstyle"
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.timeout.app"
+        applicationId "za.co.timeout.homeandstyle"
         minSdkVersion 23  // Android 6.0+ (matches our webview baseline)
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

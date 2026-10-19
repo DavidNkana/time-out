@@ -117,7 +117,7 @@ All real secrets live in `.env.local` (never committed). The template is in `.en
 
 ## Capacitor (native shells)
 
-- **App ID**: `com.timeout.app` (iOS + Android)
+- **App ID**: `za.co.timeout.homeandstyle` (iOS + Android)
 - **Display name**: `Timeout`
 - **Server URL**: `https://time-out-orpin.vercel.app` (overridable with `CAP_SERVER_URL`; for local testing use `http://10.0.2.2:3000` on Android or `http://localhost:3000` on iOS sim)
 - **Web metadata URL**: `NEXT_PUBLIC_SITE_URL` controls canonical links and Open Graph URLs.

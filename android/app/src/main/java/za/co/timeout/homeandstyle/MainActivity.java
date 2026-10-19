@@ -1,4 +1,4 @@
-package com.timeout.app;
+package za.co.timeout.homeandstyle;
 
 import android.os.Bundle;
 import android.util.Log;

@@ -17,11 +17,11 @@ import type { CapacitorConfig } from '@capacitor/cli';
  *
  * App IDs must match the bundles registered in App Store Connect / Play
  * Console:
- *   - iOS:     com.timeout.app
- *   - Android: com.timeout.app
+ *   - iOS:     za.co.timeout.homeandstyle
+ *   - Android: za.co.timeout.homeandstyle
  */
 const config: CapacitorConfig = {
-  appId: 'com.timeout.app',
+  appId: 'za.co.timeout.homeandstyle',
   appName: 'Timeout',
   webDir: 'out',
 
