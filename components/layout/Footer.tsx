@@ -56,9 +56,9 @@ export function Footer() {
           </div>
           <p className="mt-4 max-w-xs text-sm leading-6 text-brand-600">{brand.shortDescription}</p>
           <div className="mt-5 rounded-2xl border border-brand-200 bg-white p-4">
-            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-500">Payment options planned</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-500">Payment setup</p>
             <PaymentMethodsStrip size="sm" className="mt-3" />
-            <p className="mt-2 text-xs text-brand-500">Payfast and PayJustNow integrations are coming soon.</p>
+            <p className="mt-2 text-xs text-brand-500">Payfast and PayJustNow.</p>
           </div>
           <div className="mt-5 flex items-center justify-between border-t border-brand-200 pt-4 text-xs text-brand-500">
             <Link href="/legal/privacy" className="inline-flex min-h-11 items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500">Privacy</Link>
@@ -182,7 +182,7 @@ export function Footer() {
         {/* Payment methods trust strip */}
         <div className="mt-8 border-t border-brand-200 pt-6">
           <p className="text-xs font-semibold uppercase tracking-wider text-brand-500 mb-3">
-            Payment options planned
+            Payment setup
           </p>
           <PaymentMethodsStrip size="sm" showLabel />
         </div>

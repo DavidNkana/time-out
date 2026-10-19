@@ -53,7 +53,7 @@ export function CheckoutForm({ user, savedAddresses }: Props) {
 
   async function placeOrder() {
     if (!PAYMENT_INTEGRATION_READY) {
-      showToast('Payment integration is coming soon.', 'info');
+      showToast('Payment setup is unavailable.', 'info');
       return;
     }
     if (items.length === 0) {
@@ -229,42 +229,37 @@ export function CheckoutForm({ user, savedAddresses }: Props) {
 
             <div className="space-y-2">
               {[
-                { id: 'payfast', label: 'Payfast', desc: 'Cards and instant EFT', planned: true },
-                { id: 'payjustnow', label: 'PayJustNow', desc: 'Split your purchase into instalments', planned: true }
+                { id: 'payfast', label: 'Payfast', desc: 'Cards and instant EFT' },
+                { id: 'payjustnow', label: 'PayJustNow', desc: 'Split your purchase into instalments' }
               ].map((g) => (
                 <label
                   key={g.id}
-                  className={`block rounded-lg border p-4 ${
-                    (g as any).planned
-                      ? 'cursor-not-allowed border-brand-100 bg-brand-50 opacity-60'
-                      : `cursor-pointer ${paymentMethod === g.id ? 'border-brand-900 bg-brand-50' : 'border-brand-200 bg-white'}`
-                  }`}
+                  className="block cursor-not-allowed rounded-lg border border-brand-100 bg-brand-50 p-4 opacity-60"
                 >
                   <div className="flex items-center justify-between">
                     <p className="font-medium text-brand-900">{g.label}</p>
-                    {(g as any).planned && (
-                      <span className="rounded-full bg-brand-100 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-brand-700">
-                        Coming soon
-                      </span>
-                    )}
+                    <span className="rounded-full bg-brand-100 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-brand-700">Setup required</span>
                   </div>
                   <p className="text-sm text-brand-600">{g.desc}</p>
                   <input
                     type="radio"
                     name="payment"
                     value={g.id}
-                     checked={paymentMethod === g.id as any}
-                    onChange={() => !(g as any).planned && setPaymentMethod(g.id as any)}
-                    disabled={(g as any).planned}
+                    checked={paymentMethod === g.id as any}
+                    onChange={() => setPaymentMethod(g.id as any)}
+                    disabled
                     className="sr-only"
                   />
                 </label>
               ))}
             </div>
+            <p className="rounded-xl border border-brand-200 bg-brand-50 p-3 text-sm text-brand-600">
+              Payment setup is unavailable in this release. Your order will not be submitted until a gateway is configured.
+            </p>
             <div className="flex gap-2">
               <Button onClick={() => setStep('shipping')} variant="secondary">Back</Button>
               <Button onClick={placeOrder} loading={submitting} disabled={!PAYMENT_INTEGRATION_READY} fullWidth size="lg">
-                {PAYMENT_INTEGRATION_READY ? `Place order · ${formatRand(totalCents)}` : 'Payments coming soon'}
+                Payment setup unavailable
               </Button>
             </div>
           </div>

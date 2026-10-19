@@ -163,7 +163,7 @@ export const PAYMENT_METHODS: PaymentMethod[] = [
   {
     id: 'payjustnow',
     name: 'PayJustNow',
-    alt: 'PayJustNow — planned payment option',
+    alt: 'PayJustNow payment option',
     available: 'planned',
     Logo: (p) => (
       <svg viewBox="0 0 420 120" xmlns="http://www.w3.org/2000/svg" {...p}>
@@ -228,7 +228,7 @@ export function PaymentMethodsStrip({
         </div>
       ))}
       {showLabel && (
-        <span className="ml-2 text-xs text-brand-500">Payfast + PayJustNow · coming soon</span>
+        <span className="ml-2 text-xs text-brand-500">Payment setup · Payfast + PayJustNow</span>
       )}
     </div>
   );

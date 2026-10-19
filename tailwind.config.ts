@@ -66,8 +66,8 @@ const config: Config = {
         info:    '#2563eb'
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        display: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif']
+        sans: ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
+        display: ['"Avenir Next"', 'ui-sans-serif', 'system-ui', 'sans-serif']
       },
       borderRadius: {
         sm: '4px',
