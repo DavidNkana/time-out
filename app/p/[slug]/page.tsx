@@ -17,7 +17,7 @@ type Props = { params: { slug: string } };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = await getProductBySlug(params.slug);
   if (!product) return { title: 'Product not found — Timeout' };
-  const SITE = (process.env.NEXT_PUBLIC_SITE_URL || 'https://timeout.example.com').replace(/\/+$/, '');
+   const SITE = (process.env.NEXT_PUBLIC_SITE_URL || 'https://time-out-orpin.vercel.app').replace(/\/+$/, '');
   const priceCents = product.variants[0]?.price_cents ?? product.base_price_cents;
   const priceRand = `R${(priceCents / 100).toFixed(2)}`;
   return {

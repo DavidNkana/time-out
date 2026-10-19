@@ -2,7 +2,7 @@
 
 This guide walks through turning the Timeout web app into App Store + Play Store apps using Capacitor.
 
-The approach: the native app is a small **webview wrapper** that loads the deployed Timeout site (URL configured in `capacitor.config.ts` via `server.url` or via your hosting provider's `NEXT_PUBLIC_SITE_URL`). This is the simplest, fastest, and most maintainable approach. All dynamic features (auth, app routes) just work because they hit the live server.
+The approach: the native app is a small **webview wrapper** that loads the deployed Timeout site (URL configured in `capacitor.config.ts` via `server.url` or the `CAP_SERVER_URL` build variable). `NEXT_PUBLIC_SITE_URL` is reserved for web metadata such as canonical and Open Graph URLs. This is the simplest, fastest, and most maintainable approach. All dynamic features (auth, app routes) just work because they hit the live server.
 
 ---
 

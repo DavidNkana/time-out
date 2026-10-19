@@ -29,7 +29,7 @@ const config: CapacitorConfig = {
   // For testing against a local dev server, change this to http://10.0.2.2:3000
   // (Android emulator's loopback to host) or http://localhost:3000 (iOS sim).
   server: {
-    url: 'https://timeout.example.com',
+    url: process.env.CAP_SERVER_URL || 'https://time-out-orpin.vercel.app',
     cleartext: false
   },
 

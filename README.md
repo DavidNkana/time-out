@@ -88,7 +88,8 @@ All real secrets live in `.env.local` (never committed). The template is in `.en
 | `NEXT_PUBLIC_SUPABASE_URL` | Public Supabase project URL | web, native |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Public anon key | web, native |
 | `SUPABASE_SERVICE_ROLE_KEY` | Server-only key — admin ops, webhooks | server routes |
-| `NEXT_PUBLIC_SITE_URL` | Canonical site URL (OG, sitemap) | web, native deep links |
+| `NEXT_PUBLIC_SITE_URL` | Canonical site URL (OG, sitemap) | web metadata |
+| `CAP_SERVER_URL` | URL loaded by the Capacitor native shell | native builds |
 | `NEXT_PUBLIC_APP_NAME` | Display name override | optional |
 | `NEXT_PUBLIC_SUPPORT_EMAIL` | Public support email | optional |
 | `PAYFAST_*`, `YOCO_*`, `OZOW_*` | Payment gateways (when wired up) | optional |
@@ -118,8 +119,9 @@ All real secrets live in `.env.local` (never committed). The template is in `.en
 
 - **App ID**: `com.timeout.app` (iOS + Android)
 - **Display name**: `Timeout`
-- **Server URL**: `https://timeout.example.com` (overridable — set `NEXT_PUBLIC_SITE_URL` when you wire a real domain; for local testing use `http://10.0.2.2:3000` on Android or `http://localhost:3000` on iOS sim)
-- **Deep links**: `https://<your-domain>/*` + `timeout://app/*`
+- **Server URL**: `https://time-out-orpin.vercel.app` (overridable with `CAP_SERVER_URL`; for local testing use `http://10.0.2.2:3000` on Android or `http://localhost:3000` on iOS sim)
+- **Web metadata URL**: `NEXT_PUBLIC_SITE_URL` controls canonical links and Open Graph URLs.
+- **Deep links**: `https://time-out-orpin.vercel.app/*` + `timeout://app/*`
 
 Setup, signing, and store submission: see [`docs/CAPACITOR_SETUP.md`](./docs/CAPACITOR_SETUP.md).
 

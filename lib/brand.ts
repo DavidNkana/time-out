@@ -69,7 +69,7 @@ export const brand = {
   // Defaults are the deployment URL. Set NEXT_PUBLIC_SITE_URL in your
   // hosting provider (e.g. Vercel) to point this at the real Timeout site.
   get siteUrl() {
-    return (process.env.NEXT_PUBLIC_SITE_URL || 'https://timeout.example.com').replace(/\/+$/, '');
+    return (process.env.NEXT_PUBLIC_SITE_URL || 'https://time-out-orpin.vercel.app').replace(/\/+$/, '');
   },
 
   // Email subjects (handover to Resend)

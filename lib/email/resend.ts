@@ -7,8 +7,8 @@
  * Setup:
  * 1. Sign up at https://resend.com (free)
  * 2. API Keys → create
- * 3. Add domain timeout.example.com (or your subdomain) + verify
- * 4. Vercel env: RESEND_API_KEY + RESEND_FROM_EMAIL=orders@timeout.example.com
+ * 3. Add the production domain + verify it
+ * 4. Vercel env: RESEND_API_KEY + RESEND_FROM_EMAIL=<verified sender>
  */
 
 import { brand } from '@/lib/brand';
