@@ -22,7 +22,7 @@ export default async function AccountPage() {
               <h1 className="mt-3 font-display text-4xl font-semibold tracking-[-0.04em] md:text-5xl">Welcome back, {displayName}</h1>
               <p className="mt-3 text-sm text-white/60">{user.email}</p>
             </div>
-            <LogoutButton redirectTo="/" />
+            <LogoutButton redirectTo="/" onDark />
           </div>
         </div>
 

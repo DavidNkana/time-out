@@ -13,7 +13,7 @@ function getSupabase() {
   );
 }
 
-export function LogoutButton({ redirectTo = '/' }: { redirectTo?: string }) {
+export function LogoutButton({ redirectTo = '/', onDark = false }: { redirectTo?: string; onDark?: boolean }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const showToast = useToast((s) => s.show);
@@ -28,6 +28,14 @@ export function LogoutButton({ redirectTo = '/' }: { redirectTo?: string }) {
   }
 
   return (
-    <Button onClick={onSignOut} loading={loading} variant="ghost" size="sm">Sign out</Button>
+      <Button
+        onClick={onSignOut}
+        loading={loading}
+        variant="ghost"
+        size="sm"
+        className={onDark ? 'bg-white text-brand-950 hover:bg-brand-100' : undefined}
+      >
+        Sign out
+      </Button>
   );
 }
